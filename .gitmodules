@@ -1,0 +1,78 @@
+[submodule "plugins/compose_addressbook"]
+	path = plugins/compose_addressbook
+	url = git@github.com:corbosman/compose_addressbook.git
+[submodule "plugins/contextmenu"]
+	path = plugins/contextmenu
+	url = git@github.com:JohnDoh/Roundcube-Plugin-Context-Menu.git
+[submodule "plugins/keyboard_shortcuts"]
+	path = plugins/keyboard_shortcuts
+	url = git@github.com:corbosman/keyboard_shortcuts.git
+[submodule "plugins/listcommands"]
+	path = plugins/listcommands
+	url = git@github.com:corbosman/listcommands.git
+[submodule "plugins/message_highlight"]
+	path = plugins/message_highlight
+	url = git@github.com:corbosman/message_highlight.git
+[submodule "plugins/xs4all_about"]
+	path = plugins/xs4all_about
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_about.git
+[submodule "plugins/xs4all_check"]
+	path = plugins/xs4all_check
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_check.git
+[submodule "plugins/xs4all_css"]
+	path = plugins/xs4all_css
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_css.git
+[submodule "plugins/xs4all_default"]
+	path = plugins/xs4all_default
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_default.git
+[submodule "plugins/xs4all_dev"]
+	path = plugins/xs4all_dev
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_dev.git
+[submodule "plugins/xs4all_emaillogin"]
+	path = plugins/xs4all_emaillogin
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_emaillogin.git
+[submodule "plugins/xs4all_greenlist"]
+	path = plugins/xs4all_greenlist
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_greenlist.git
+[submodule "plugins/xs4all_import"]
+	path = plugins/xs4all_import
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_import.git
+[submodule "plugins/xs4all_ipv6"]
+	path = plugins/xs4all_ipv6
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_ipv6.git
+[submodule "plugins/xs4all_logging"]
+	path = plugins/xs4all_logging
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_logging.git
+[submodule "plugins/xs4all_login"]
+	path = plugins/xs4all_login
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_login.git
+[submodule "plugins/xs4all_motd"]
+	path = plugins/xs4all_motd
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_motd.git
+[submodule "plugins/xs4all_nieuws_settings"]
+	path = plugins/xs4all_nieuws_settings
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_nieuws_settings.git
+[submodule "plugins/xs4all_nsa_api"]
+	path = plugins/xs4all_nsa_api
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_nsa_api.git
+[submodule "plugins/xs4all_otp"]
+	path = plugins/xs4all_otp
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_otp.git
+[submodule "plugins/xs4all_sieve"]
+	path = plugins/xs4all_sieve
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_sieve.git
+[submodule "plugins/xs4all_spam_settings"]
+	path = plugins/xs4all_spam_settings
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_spam_settings.git
+[submodule "plugins/xs4all_spambutton"]
+	path = plugins/xs4all_spambutton
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_spambutton.git
+[submodule "plugins/xs4all_virus_settings"]
+	path = plugins/xs4all_virus_settings
+	url = git@git.xs4all.net:/roundcube/plugins/xs4all_virus_settings.git
+[submodule "plugins/dovecot_impersonate"]
+	path = plugins/dovecot_impersonate
+	url = git@github.com:corbosman/dovecot_impersonate.git
+[submodule "plugins/xs4all_spam"]
+	path = plugins/xs4all_spam
+	url = git@git.xs4all.net:roundcube/plugins/xs4all_spam.git
