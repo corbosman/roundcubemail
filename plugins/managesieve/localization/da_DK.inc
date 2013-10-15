@@ -15,8 +15,6 @@
 
  For translation see https://www.transifex.com/projects/p/roundcube-webmail/resource/plugin-managesieve/
 */
-
-
 $labels['filters'] = 'Filtre';
 $labels['managefilters'] = 'Ændre indgående mail filtreing';
 $labels['filtername'] = 'Filter navn';
@@ -55,11 +53,10 @@ $labels['add'] = 'Tilføje';
 $labels['del'] = 'Fjern';
 $labels['sender'] = 'Afsender';
 $labels['recipient'] = 'Modtager';
-$labels['vacationaddr'] = 'Mine alternative e-mailadresser:';
 $labels['vacationdays'] = 'Hvor tit skal besked sendes (i dage):';
-$labels['vacationinterval'] = 'How often send messages:';
-$labels['days'] = 'days';
-$labels['seconds'] = 'seconds';
+$labels['vacationinterval'] = 'Hvor tit skal besked sendes:';
+$labels['days'] = 'dage';
+$labels['seconds'] = 'sekunder';
 $labels['vacationreason'] = 'Besked (ved ferie):';
 $labels['vacationsubject'] = 'Besked emne:';
 $labels['rulestop'] = 'Stop behandling af regler';
@@ -121,6 +118,22 @@ $labels['filtercreate'] = 'Opret filter';
 $labels['usedata'] = 'Brug følgende data i filteret:';
 $labels['nextstep'] = 'Næste trin';
 $labels['...'] = '...';
+$labels['currdate'] = 'Aktuel dato';
+$labels['datetest'] = 'Dato';
+$labels['dateheader'] = 'header:';
+$labels['year'] = 'år';
+$labels['month'] = 'måned';
+$labels['day'] = 'dag';
+$labels['date'] = 'dato (åååå-mm-dd)';
+$labels['julian'] = 'dato (juliansk)';
+$labels['hour'] = 'time';
+$labels['minute'] = 'minut';
+$labels['second'] = 'sekund';
+$labels['time'] = 'tid (tt:mm:ss)';
+$labels['iso8601'] = 'dato (ISO8601)';
+$labels['std11'] = 'dato (RFC2822)';
+$labels['zone'] = 'tidszone';
+$labels['weekday'] = 'ugedag (0-6)';
 $labels['advancedopts'] = 'Advancerede muligheder';
 $labels['body'] = 'Brødtekst';
 $labels['address'] = 'adresse';
@@ -140,38 +153,29 @@ $labels['default'] = 'standard';
 $labels['octet'] = 'præcis (oktet)';
 $labels['asciicasemap'] = 'store og små bogstaver (ascii-bogstaver)';
 $labels['asciinumeric'] = 'numerisk (ascii-numerisk)';
-
-$messages = array();
+$labels['index'] = 'indeks:';
+$labels['indexlast'] = 'baglends';
 $messages['filterunknownerror'] = 'Ukendt server fejl.';
 $messages['filterconnerror'] = 'Kan ikke forbinde til server.';
-$messages['filterdeleteerror'] = 'Kan ikke slette filter. Server fejl.';
 $messages['filterdeleted'] = 'Filter slettet.';
 $messages['filtersaved'] = 'Filter gemt.';
-$messages['filtersaveerror'] = 'Kan ikke gemme filter. Server fejl.';
 $messages['filterdeleteconfirm'] = 'Vil du slette det valgte filter?';
 $messages['ruledeleteconfirm'] = 'Er du sikker på at du vil slette den valgte regel?';
 $messages['actiondeleteconfirm'] = 'Er du sikker på du vil slette den valgte handling?';
 $messages['forbiddenchars'] = 'Ulovlige tegn i feltet';
 $messages['cannotbeempty'] = 'Feltet kan ikke være tomt.';
 $messages['ruleexist'] = 'Filter med dette navn eksisterer allerede.';
-$messages['setactivateerror'] = 'Kan ikke aktiverer valgt filter sæt. Server fejl.';
-$messages['setdeactivateerror'] = 'Kan ikke deaktivere valgt filter sæt. Server fejl.';
-$messages['setdeleteerror'] = 'Kan ikke slette valgt filter sæt. Server fejl.';
 $messages['setactivated'] = 'Filter sæt aktiveret.';
 $messages['setdeactivated'] = 'Filter sæt deaktiveret.';
 $messages['setdeleted'] = 'Filter sæt slettet.';
 $messages['setdeleteconfirm'] = 'Er du sikker på du vil slette valgt filter sæt?';
-$messages['setcreateerror'] = 'Kan ikke oprette filter sæt. Server fejl.';
 $messages['setcreated'] = 'Filter sæt oprettet.';
-$messages['activateerror'] = 'Kan ikek aktivere valgt filter sæt. Server fejl.';
-$messages['deactivateerror'] = 'Kan ikke deaktivere valgt filter sæt. Server fejl.';
 $messages['deactivated'] = 'Filter(filtre) aktiveret.';
 $messages['activated'] = 'Filter(filtre) deaktiveret.';
 $messages['moved'] = 'Filter flyttet.';
-$messages['moveerror'] = 'Kan ikke flytte valgt filter. Server fejl.';
 $messages['nametoolong'] = 'Navn er for langt.';
 $messages['namereserved'] = 'Reserveret navn.';
 $messages['setexist'] = 'Filterv sæt eksisterer allerede';
 $messages['nodata'] = 'Mindst en position skal vælges!';
-
+$messages['invaliddateformat'] = 'Ugyldigt dato- eller tidsformat';
 ?>

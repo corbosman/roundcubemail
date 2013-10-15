@@ -15,8 +15,6 @@
 
  For translation see https://www.transifex.com/projects/p/roundcube-webmail/resource/plugin-managesieve/
 */
-
-
 $labels['filters'] = 'Filtre';
 $labels['managefilters'] = 'Rediger filter for innkommende e-post';
 $labels['filtername'] = 'Filternavn';
@@ -55,7 +53,6 @@ $labels['add'] = 'Legg til';
 $labels['del'] = 'Slett';
 $labels['sender'] = 'Avsender';
 $labels['recipient'] = 'Mottaker';
-$labels['vacationaddr'] = 'Liste med mottakeradresser:';
 $labels['vacationdays'] = 'Periode mellom meldinger (i dager):';
 $labels['vacationinterval'] = 'Periode mellom meldinger:';
 $labels['days'] = 'dager';
@@ -83,13 +80,13 @@ $labels['countisgreaterthanequal'] = 'antall er flere enn eller lik';
 $labels['countislessthan'] = 'antall er færre enn';
 $labels['countislessthanequal'] = 'antall er færre enn eller lik';
 $labels['countequals'] = 'antall er lik';
-$labels['countnotequals'] = 'antall er ulik';
+$labels['countnotequals'] = 'tallet er ikke det samme som';
 $labels['valueisgreaterthan'] = 'verdien er høyrere enn';
 $labels['valueisgreaterthanequal'] = 'verdien er høyere eller lik';
 $labels['valueislessthan'] = 'verdien er lavere enn';
 $labels['valueislessthanequal'] = 'verdien er lavere eller lik';
 $labels['valueequals'] = 'verdien er lik';
-$labels['valuenotequals'] = 'verdien er ulik';
+$labels['valuenotequals'] = 'verdien er ikke den samme som';
 $labels['setflags'] = 'Sett meldingsflagg';
 $labels['addflags'] = 'Legg til flagg på meldingen';
 $labels['removeflags'] = 'Fjern flagg fra meldingen';
@@ -121,6 +118,22 @@ $labels['filtercreate'] = 'Opprett filter';
 $labels['usedata'] = 'Bruk følgende data i filteret:';
 $labels['nextstep'] = 'Neste steg';
 $labels['...'] = '…';
+$labels['currdate'] = 'Nåværende dato';
+$labels['datetest'] = 'Dato';
+$labels['dateheader'] = 'header:';
+$labels['year'] = 'år';
+$labels['month'] = 'måned';
+$labels['day'] = 'dag';
+$labels['date'] = 'dato (yyyy-mm-dd)';
+$labels['julian'] = 'dato (juliansk)';
+$labels['hour'] = 'time';
+$labels['minute'] = 'minutt';
+$labels['second'] = 'sekund';
+$labels['time'] = 'tid (hh:mm:ss)';
+$labels['iso8601'] = 'dato (ISO8601)';
+$labels['std11'] = 'dato (RFC2822)';
+$labels['zone'] = 'tidssone';
+$labels['weekday'] = 'ukedag (0-6)';
 $labels['advancedopts'] = 'Avanserte alternativer';
 $labels['body'] = 'Meldingstekst';
 $labels['address'] = 'adresse';
@@ -140,38 +153,29 @@ $labels['default'] = 'standard';
 $labels['octet'] = 'streng (oktett)';
 $labels['asciicasemap'] = 'ikke skill store og små bokstaver (ascii-casemap)';
 $labels['asciinumeric'] = 'numerisk (ascii-numeric)';
-
-$messages = array();
+$labels['index'] = 'index:';
+$labels['indexlast'] = 'baklengs';
 $messages['filterunknownerror'] = 'Ukjent problem med tjener.';
 $messages['filterconnerror'] = 'Kunne ikke koble til tjeneren.';
-$messages['filterdeleteerror'] = 'Kunne ikke slette filter. Det dukket opp en feil på tjeneren.';
 $messages['filterdeleted'] = 'Filteret er blitt slettet.';
 $messages['filtersaved'] = 'Filteret er blitt lagret.';
-$messages['filtersaveerror'] = 'Kunne ikke lagre filteret. Det dukket opp en feil på tjeneren.';
 $messages['filterdeleteconfirm'] = 'Vil du virkelig slette det valgte filteret?';
 $messages['ruledeleteconfirm'] = 'Er du sikker på at du vil slette valgte regel?';
 $messages['actiondeleteconfirm'] = 'Er du sikker på at du vil slette valgte hendelse?';
 $messages['forbiddenchars'] = 'Ugyldige tegn i felt.';
 $messages['cannotbeempty'] = 'Feltet kan ikke stå tomt.';
 $messages['ruleexist'] = 'Det finnes allerede et filter med dette navnet.';
-$messages['setactivateerror'] = 'Kunne ikke aktivere det valgte filtersettet. Det oppsto en tjenerfeil.';
-$messages['setdeactivateerror'] = 'Kunne ikke deaktivere det valgte filtersettet. Det oppsto en tjenerfeil.';
-$messages['setdeleteerror'] = 'Kunne ikke slette det valgte filtersettet. Det oppsto en tjenerfeil.';
 $messages['setactivated'] = 'Filtersett aktivert.';
 $messages['setdeactivated'] = 'Filtersett deaktivert.';
 $messages['setdeleted'] = 'Filtersett slettet.';
 $messages['setdeleteconfirm'] = 'Er du sikker på at du vil slette det valgte filtersettet?';
-$messages['setcreateerror'] = 'Kunne ikke opprette filtersettet. Det oppsto en tjenerfeil.';
 $messages['setcreated'] = 'Filtersett opprettet.';
-$messages['activateerror'] = 'Kunne ikke skru på valgte filter. Det oppsto en tjenerfeil.';
-$messages['deactivateerror'] = 'Kunne ikke skru av valgte filter. Det oppsto en tjenerfeil.';
 $messages['deactivated'] = 'Filter skrudd på.';
 $messages['activated'] = 'Filter skrudd av.';
 $messages['moved'] = 'Filter ble flyttet.';
-$messages['moveerror'] = 'Kunne ikke flytte valgte filter. Det oppsto en tjenerfeil.';
 $messages['nametoolong'] = 'Navnet er for langt.';
 $messages['namereserved'] = 'Navnet er reservert.';
 $messages['setexist'] = 'Settet eksisterer allerede.';
 $messages['nodata'] = 'Du må velge minst én posisjon!';
-
+$messages['invaliddateformat'] = 'Ugyldig dato eller datoformat';
 ?>

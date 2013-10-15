@@ -15,8 +15,6 @@
 
  For translation see https://www.transifex.com/projects/p/roundcube-webmail/resource/plugin-managesieve/
 */
-
-
 $labels['filters'] = 'Filter';
 $labels['managefilters'] = 'Rediger filter for innkommande e-post';
 $labels['filtername'] = 'Filternamn';
@@ -55,7 +53,6 @@ $labels['add'] = 'Legg til';
 $labels['del'] = 'Slett';
 $labels['sender'] = 'Avsendar';
 $labels['recipient'] = 'Mottakar';
-$labels['vacationaddr'] = 'Liste med mottakaradresser:';
 $labels['vacationdays'] = 'Periode mellom meldingar (i dagar):';
 $labels['vacationreason'] = 'Innhald (grunngjeving for fråvær)';
 $labels['vacationsubject'] = 'Meldingsemne:';
@@ -80,13 +77,11 @@ $labels['countisgreaterthanequal'] = 'mengd er fleire enn eller lik';
 $labels['countislessthan'] = 'mengd er færre enn';
 $labels['countislessthanequal'] = 'mengd er færre enn eller lik';
 $labels['countequals'] = 'mengd er lik';
-$labels['countnotequals'] = 'mengd er ulik';
 $labels['valueisgreaterthan'] = 'verdien er høgare enn';
 $labels['valueisgreaterthanequal'] = 'verdien er høgare eller lik';
 $labels['valueislessthan'] = 'verdien er lågare enn';
 $labels['valueislessthanequal'] = 'verdien er lågare eller lik';
 $labels['valueequals'] = 'verdien er lik';
-$labels['valuenotequals'] = 'verdien er ulik';
 $labels['setflags'] = 'Sett meldingsflagg';
 $labels['addflags'] = 'Legg til flagg på meldinga';
 $labels['removeflags'] = 'Fjern flagg fra meldinga';
@@ -98,18 +93,17 @@ $labels['flagdraft'] = 'Skisse';
 $labels['setvariable'] = 'Sett variabel:';
 $labels['setvarname'] = 'Variabelnamn:';
 $labels['setvarvalue'] = 'Variabelverdi:';
-$labels['setvarmodifiers'] = 'Modifiers:';
+$labels['setvarmodifiers'] = 'Modifikator:';
 $labels['varlower'] = 'med små bokstavar';
 $labels['varupper'] = 'med store bokstavar';
 $labels['varlowerfirst'] = 'med liten forbokstav';
 $labels['varupperfirst'] = 'med stor forbokstav';
-$labels['varquotewildcard'] = 'quote special characters';
 $labels['varlength'] = 'lengde';
 $labels['notify'] = 'Send varsel';
 $labels['notifyaddress'] = 'Til e-postadresse:';
-$labels['notifybody'] = 'Notification body:';
-$labels['notifysubject'] = 'Notification subject:';
-$labels['notifyfrom'] = 'Notification sender:';
+$labels['notifybody'] = 'Varseltekst:';
+$labels['notifysubject'] = 'Varselemne:';
+$labels['notifyfrom'] = 'Varselavsendar:';
 $labels['notifyimportance'] = 'Betyding:';
 $labels['notifyimportancelow'] = 'låg';
 $labels['notifyimportancenormal'] = 'normal';
@@ -137,38 +131,26 @@ $labels['default'] = 'standard';
 $labels['octet'] = 'streng (oktett)';
 $labels['asciicasemap'] = 'ikkje skil mellom store og små bokstavar (ascii-casemap)';
 $labels['asciinumeric'] = 'numerisk (ascii-numeric)';
-
-$messages = array();
 $messages['filterunknownerror'] = 'Ukjent problem med tenar.';
 $messages['filterconnerror'] = 'Kunne ikkje kople til tenaren.';
-$messages['filterdeleteerror'] = 'Kunne ikkje slette filter. Det oppstod ein feil på tenaren.';
 $messages['filterdeleted'] = 'Filteret er blitt sletta.';
 $messages['filtersaved'] = 'Filteret er blitt lagra.';
-$messages['filtersaveerror'] = 'Kunne ikkje lagre filteret. Det oppstod ein feil på tenaren.';
 $messages['filterdeleteconfirm'] = 'Vil du verkeleg slette det valde filteret?';
 $messages['ruledeleteconfirm'] = 'Er du sikker på at du vil slette vald regel?';
 $messages['actiondeleteconfirm'] = 'Er du sikker på at du vil slette vald hending?';
 $messages['forbiddenchars'] = 'Ugyldige teikn i felt.';
 $messages['cannotbeempty'] = 'Feltet kan ikkje stå tomt.';
 $messages['ruleexist'] = 'Det finst alt eit filter med dette namnet.';
-$messages['setactivateerror'] = 'Kunne ikkje aktivere det valde filtersettet. Det oppsto ein tenarfeil.';
-$messages['setdeactivateerror'] = 'Kunne ikkje deaktivere det valde filtersettet. Det oppsto ein tenarfeil.';
-$messages['setdeleteerror'] = 'Kunne ikkje slette det valde filtersettet. Det oppsto ein tenarfeil.';
 $messages['setactivated'] = 'Filtersett aktivert.';
 $messages['setdeactivated'] = 'Filtersett deaktivert.';
 $messages['setdeleted'] = 'Filtersett sletta.';
 $messages['setdeleteconfirm'] = 'Er du sikker på at du vil slette det valde filtersettet?';
-$messages['setcreateerror'] = 'Kunne ikkje opprette filtersettet. Det oppstod ein tenarfeil.';
 $messages['setcreated'] = 'Filtersett oppretta.';
-$messages['activateerror'] = 'Kunne ikkje skru på valde filter. Det oppstod ein tenarfeil.';
-$messages['deactivateerror'] = 'Kunne ikkje skru av valde filter. Det oppstod ein tenarfeil.';
 $messages['deactivated'] = 'Filter skrudd på.';
 $messages['activated'] = 'Filter skrudd av.';
 $messages['moved'] = 'Filter vart flytta.';
-$messages['moveerror'] = 'Kunne ikkje flytte valde filter. Det oppstod ein tenarfeil.';
 $messages['nametoolong'] = 'Namnet er for langt.';
 $messages['namereserved'] = 'Namnet er reservert.';
 $messages['setexist'] = 'Settet eksisterer alt.';
 $messages['nodata'] = 'Du må velje minst éin posisjon!';
-
 ?>

@@ -15,8 +15,6 @@
 
  For translation see https://www.transifex.com/projects/p/roundcube-webmail/resource/plugin-managesieve/
 */
-
-
 $labels['filters'] = 'Filter';
 $labels['managefilters'] = 'Verwalte eingehende Nachrichtenfilter';
 $labels['filtername'] = 'Filtername';
@@ -49,13 +47,14 @@ $labels['messagesendcopy'] = 'Sende Kopie an';
 $labels['messagereply'] = 'Antworte mit Nachricht';
 $labels['messagedelete'] = 'Nachricht löschen';
 $labels['messagediscard'] = 'Discard with message';
+$labels['messagekeep'] = 'Im Posteingang behalten';
 $labels['messagesrules'] = 'Für eingehende Nachrichten:';
 $labels['messagesactions'] = 'Führe folgende Aktionen aus:';
 $labels['add'] = 'Hinzufügen';
 $labels['del'] = 'Löschen';
 $labels['sender'] = 'Absender';
 $labels['recipient'] = 'Empfänger';
-$labels['vacationaddr'] = 'Zusätzliche Liste von Empfängern:';
+$labels['vacationaddr'] = 'Meine weiteren E-Mail-Adressen:';
 $labels['vacationdays'] = 'Antwort wird erneut gesendet nach (in Tagen):';
 $labels['vacationinterval'] = 'Wie oft senden:';
 $labels['days'] = 'Tage';
@@ -121,6 +120,22 @@ $labels['filtercreate'] = 'Filter erstellen';
 $labels['usedata'] = 'Die folgenden Daten im Filter benutzen:';
 $labels['nextstep'] = 'Nächster Schritt';
 $labels['...'] = '...';
+$labels['currdate'] = 'Aktuelles Datum';
+$labels['datetest'] = 'Datum';
+$labels['dateheader'] = 'Kopfzeile:';
+$labels['year'] = 'Jahr';
+$labels['month'] = 'Monat';
+$labels['day'] = 'Tag';
+$labels['date'] = 'Datum (JJJJ-MM-TT)';
+$labels['julian'] = 'Datum (julianisch)';
+$labels['hour'] = 'Stunde';
+$labels['minute'] = 'Minute';
+$labels['second'] = 'Sekunde';
+$labels['time'] = 'Zeit (hh:mm:ss)';
+$labels['iso8601'] = 'Datum (ISO-8601)';
+$labels['std11'] = 'Datum (RFC 2822)';
+$labels['zone'] = 'Zeitzone';
+$labels['weekday'] = 'Wochentag (0-6)';
 $labels['advancedopts'] = 'Erweiterte Optionen';
 $labels['body'] = 'Inhalt';
 $labels['address'] = 'Adresse';
@@ -140,38 +155,29 @@ $labels['default'] = 'Vorgabewert';
 $labels['octet'] = 'strikt (Oktet)';
 $labels['asciicasemap'] = 'Gross-/Kleinschreibung ignorieren';
 $labels['asciinumeric'] = 'numerisch (ascii-numeric)';
-
-$messages = array();
+$labels['index'] = 'Index:';
+$labels['indexlast'] = 'rückwärts';
 $messages['filterunknownerror'] = 'Unbekannter Serverfehler';
 $messages['filterconnerror'] = 'Kann nicht zum Sieve-Server verbinden';
-$messages['filterdeleteerror'] = 'Fehler beim des löschen  Filters. Serverfehler';
 $messages['filterdeleted'] = 'Filter erfolgreich gelöscht';
 $messages['filtersaved'] = 'Filter gespeichert';
-$messages['filtersaveerror'] = 'Serverfehler, konnte den Filter nicht speichern.';
 $messages['filterdeleteconfirm'] = 'Möchten Sie den Filter löschen ?';
 $messages['ruledeleteconfirm'] = 'Sicher, dass Sie die Regel löschen wollen?';
 $messages['actiondeleteconfirm'] = 'Sicher, dass Sie die ausgewaehlte Aktion löschen wollen?';
 $messages['forbiddenchars'] = 'Unerlaubte Zeichen im Feld';
 $messages['cannotbeempty'] = 'Feld darf nicht leer sein';
 $messages['ruleexist'] = 'Ein Filter mit dem angegebenen Namen existiert bereits.';
-$messages['setactivateerror'] = 'Filtersatz kann nicht aktiviert werden. Serverfehler.';
-$messages['setdeactivateerror'] = 'Filtersatz kann nicht deaktiviert werden. Serverfehler.';
-$messages['setdeleteerror'] = 'Filtersatz kann nicht gelöscht werden. Serverfehler.';
 $messages['setactivated'] = 'Filtersatz erfolgreich aktiviert.';
 $messages['setdeactivated'] = 'Filtersatz erfolgreich deaktiviert.';
 $messages['setdeleted'] = 'Filtersatz erfolgreich gelöscht.';
 $messages['setdeleteconfirm'] = 'Sind Sie sicher, dass Sie den ausgewählten Filtersatz löschen möchten?';
-$messages['setcreateerror'] = 'Filtersatz kann nicht erstellt werden. Serverfehler.';
 $messages['setcreated'] = 'Filter erfolgreich erstellt.';
-$messages['activateerror'] = 'Filter kann nicht aktiviert werden. Serverfehler.';
-$messages['deactivateerror'] = 'Filter kann nicht deaktiviert werden. Serverfehler.';
 $messages['deactivated'] = 'Filter erfolgreich aktiviert.';
 $messages['activated'] = 'Filter erfolgreich deaktiviert.';
 $messages['moved'] = 'Filter erfolgreich verschoben.';
-$messages['moveerror'] = 'Filter kann nicht verschoben werden. Serverfehler.';
 $messages['nametoolong'] = 'Filtersatz kann nicht erstellt werden. Name zu lang.';
 $messages['namereserved'] = 'Reservierter Name.';
 $messages['setexist'] = 'Filtersatz existiert bereits.';
 $messages['nodata'] = 'Mindestens eine Position muss ausgewählt werden!';
-
+$messages['invaliddateformat'] = 'Ungültiges Datumsformat';
 ?>

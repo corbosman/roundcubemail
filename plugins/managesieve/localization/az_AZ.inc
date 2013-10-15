@@ -15,8 +15,6 @@
 
  For translation see https://www.transifex.com/projects/p/roundcube-webmail/resource/plugin-managesieve/
 */
-
-
 $labels['filters'] = 'Süzgəclər';
 $labels['managefilters'] = 'Gələn məktub üçün süzgəclərin idarəsi';
 $labels['filtername'] = 'Süzgəcin adı';
@@ -55,11 +53,10 @@ $labels['add'] = 'Əlavə et';
 $labels['del'] = 'Sil';
 $labels['sender'] = 'Göndərən';
 $labels['recipient'] = 'Qəbul edən';
-$labels['vacationaddr'] = 'Əlavə ünvanlarım üçün siyahı:';
 $labels['vacationdays'] = 'Məktub neçə müddətdən bir göndərilsin (gündə):';
-$labels['vacationinterval'] = 'How often send messages:';
-$labels['days'] = 'days';
-$labels['seconds'] = 'seconds';
+$labels['vacationinterval'] = 'Məktublar nə qədər sıx göndərilsin:';
+$labels['days'] = 'günlər';
+$labels['seconds'] = 'saniyələr';
 $labels['vacationreason'] = 'Məktubun mətni (səbəb yoxdur):';
 $labels['vacationsubject'] = 'Məktubun mövzusu:';
 $labels['rulestop'] = 'Yerinə yetirməyi dayandır';
@@ -83,13 +80,11 @@ $labels['countisgreaterthanequal'] = 'say çox və ya bərabərdir';
 $labels['countislessthan'] = 'say buradan azdır';
 $labels['countislessthanequal'] = 'say azdır və ya bərabərdir';
 $labels['countequals'] = 'say bərabərdir';
-$labels['countnotequals'] = 'say bərabər deyil';
 $labels['valueisgreaterthan'] = 'dəyər buradan daha böyükdür';
 $labels['valueisgreaterthanequal'] = 'dəyər çoxdur və ya bərabərdir';
 $labels['valueislessthan'] = 'dəyər buradan azdır';
 $labels['valueislessthanequal'] = 'dəyər azdır və ya bərabərdir';
 $labels['valueequals'] = 'dəyər bərabərdir';
-$labels['valuenotequals'] = 'dəyər bərabər deyil';
 $labels['setflags'] = 'Məktublara flaq quraşdır';
 $labels['addflags'] = 'Məktuba flaq əlavə et';
 $labels['removeflags'] = 'Məktubdan flaqları sil';
@@ -98,9 +93,9 @@ $labels['flagdeleted'] = 'Silindi';
 $labels['flaganswered'] = 'Cavab verilmiş';
 $labels['flagflagged'] = 'İşarəlilər';
 $labels['flagdraft'] = 'Qaralama';
-$labels['setvariable'] = 'Set variable';
-$labels['setvarname'] = 'Variable name:';
-$labels['setvarvalue'] = 'Variable value:';
+$labels['setvariable'] = 'Dəyişəni təyin et';
+$labels['setvarname'] = 'Dəyişənin adı:';
+$labels['setvarvalue'] = 'Dəyişənin dəyəri:';
 $labels['setvarmodifiers'] = 'Modifikatorlar';
 $labels['varlower'] = 'aşağı registr';
 $labels['varupper'] = 'yuxarı registr';
@@ -140,38 +135,26 @@ $labels['default'] = 'ön qurğulu';
 $labels['octet'] = 'ciddi (oktet)';
 $labels['asciicasemap'] = 'qeydiyyat üzrə müstəqil (ascii-casemap)';
 $labels['asciinumeric'] = 'ədədi (ascii-numeric)';
-
-$messages = array();
 $messages['filterunknownerror'] = 'Serverin naməlum xətası.';
 $messages['filterconnerror'] = 'Serverə qoşulmaq alınmır';
-$messages['filterdeleteerror'] = 'Süzgəci silmək mümkün deyil. Server xətası.';
 $messages['filterdeleted'] = 'Süzgəc uğurla silindi.';
 $messages['filtersaved'] = 'Süzgəc uğurla saxlanıldı.';
-$messages['filtersaveerror'] = 'Süzgəci saxlamaq mümkün deyil. Server xətası.';
 $messages['filterdeleteconfirm'] = 'Siz həqiqətən süzgəci silmək istəyirsiniz?';
 $messages['ruledeleteconfirm'] = 'Bu qaydanı silməkdə əminsiniz?';
 $messages['actiondeleteconfirm'] = 'Bu hərəkəti silməkdə əminsiniz?';
 $messages['forbiddenchars'] = 'Sahədə qadağan edilən işarələr.';
 $messages['cannotbeempty'] = 'Sahə boş ola bilməz.';
 $messages['ruleexist'] = 'Bu adla süzgəc artıq mövcuddur.';
-$messages['setactivateerror'] = 'Seçilmiş süzgəc dəstini yandırmaq mümkün deyil. Server xətası.';
-$messages['setdeactivateerror'] = 'Seçilmiş süzgəc dəstini söndürmək mümkün deyil. Server xətası.';
-$messages['setdeleteerror'] = 'Seçilmiş süzgəc dəstini silmək mümkün deyil. Server xətası.';
 $messages['setactivated'] = 'Süzgəc dəsti yandırıldı.';
 $messages['setdeactivated'] = 'Süzgəc dəsti söndürüldü.';
 $messages['setdeleted'] = 'Süzgəc dəsti silindi.';
 $messages['setdeleteconfirm'] = 'Bu süzgəc dəstini silməkdə əminsiniz?';
-$messages['setcreateerror'] = 'Süzgəc dəstini yaratmaq mümkün deyil. Server xərası.';
 $messages['setcreated'] = 'Süzgəc dəsti uğurla yaradıldı.';
-$messages['activateerror'] = 'Seçilmiş süzgəc(lər)i yandırmaq mümkün deyil. Server xətası.';
-$messages['deactivateerror'] = 'Seçilmiş süzgəc(lər)i söndürmək mümkün deyil. Server xətası.';
 $messages['deactivated'] = 'Süzgəc(lər) uğurla yandırıldı.';
 $messages['activated'] = 'Süzgəc(lər) uğurla söndürüldü.';
 $messages['moved'] = 'Süzgəc uğurla köçürüldü.';
-$messages['moveerror'] = 'Süzgəci köçürmək mümkün deyil. Server xətası.';
 $messages['nametoolong'] = 'Süzgəc dəstini yaratmaq mümkün deyil. Ad çox uzundur.';
 $messages['namereserved'] = 'Rezerv edilmiş ad.';
 $messages['setexist'] = 'Dəst artıq mövcuddur.';
 $messages['nodata'] = 'Heç olmasa bir mövqe tutmaq lazımdır!';
-
 ?>

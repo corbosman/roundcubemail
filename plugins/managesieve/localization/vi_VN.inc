@@ -15,8 +15,6 @@
 
  For translation see https://www.transifex.com/projects/p/roundcube-webmail/resource/plugin-managesieve/
 */
-
-
 $labels['filters'] = 'Bộ lọc';
 $labels['managefilters'] = 'Quản lý bộ lọc thư đến';
 $labels['filtername'] = 'Lọc tên';
@@ -55,7 +53,6 @@ $labels['add'] = 'Thêm';
 $labels['del'] = 'Xoá';
 $labels['sender'] = 'Người gửi';
 $labels['recipient'] = 'Người nhận';
-$labels['vacationaddr'] = 'Địa chỉ email bổ sung của tôi';
 $labels['vacationdays'] = 'Số lần gửi thư (trong ngày)';
 $labels['vacationreason'] = 'Nội dung chính';
 $labels['vacationsubject'] = 'Tiêu đề thư';
@@ -80,13 +77,11 @@ $labels['countisgreaterthanequal'] = 'Đếm lớn hơn hoặc bằng';
 $labels['countislessthan'] = 'Đếm ít hơn';
 $labels['countislessthanequal'] = 'Đếm ít hơn hoặc bằng';
 $labels['countequals'] = 'Đếm bằng';
-$labels['countnotequals'] = 'Đếm không bằng';
 $labels['valueisgreaterthan'] = 'Giá trị lớn hơn';
 $labels['valueisgreaterthanequal'] = 'Giá trị lớn hơn hoặc bằng';
 $labels['valueislessthan'] = 'Giá trị nhỏ hơn';
 $labels['valueislessthanequal'] = 'Giá trị nhỏ hơn hoặc bằng';
 $labels['valueequals'] = 'Giá trị bằng';
-$labels['valuenotequals'] = 'Giá trị không bằng';
 $labels['setflags'] = 'Thiết lập đánh dấu cho thư';
 $labels['addflags'] = 'Thêm đánh dấu cho thư';
 $labels['removeflags'] = 'Bỏ đánh dấu khỏi thư';
@@ -95,21 +90,18 @@ $labels['flagdeleted'] = 'Đã được xóa';
 $labels['flaganswered'] = 'Đã trả lời';
 $labels['flagflagged'] = 'Đã đánh dấu';
 $labels['flagdraft'] = 'Nháp';
-$labels['setvariable'] = 'Set variable';
-$labels['setvarname'] = 'Variable name:';
-$labels['setvarvalue'] = 'Variable value:';
-$labels['setvarmodifiers'] = 'Modifiers:';
+$labels['setvariable'] = 'Đặt biến';
+$labels['setvarname'] = 'Tên biến:';
+$labels['setvarvalue'] = 'Giá trị biến:';
+$labels['setvarmodifiers'] = 'Bộ chia:';
 $labels['varlower'] = 'viết thường';
 $labels['varupper'] = 'viết hoa';
 $labels['varlowerfirst'] = 'chữ cái đầu viết thường';
 $labels['varupperfirst'] = 'chữ cái đầu viết hoa';
-$labels['varquotewildcard'] = 'quote special characters';
+$labels['varquotewildcard'] = 'trích dẫn ký tự đặc biệt';
 $labels['varlength'] = 'độ dài';
-$labels['notify'] = 'Send notification';
+$labels['notify'] = 'Gửi thông báo';
 $labels['notifyaddress'] = 'Gửi đến địa chỉ email:';
-$labels['notifybody'] = 'Notification body:';
-$labels['notifysubject'] = 'Notification subject:';
-$labels['notifyfrom'] = 'Notification sender:';
 $labels['notifyimportance'] = 'Mức độ quan trọng:';
 $labels['notifyimportancelow'] = 'thấp';
 $labels['notifyimportancenormal'] = 'vừa phải';
@@ -137,38 +129,26 @@ $labels['default'] = 'Mặc định';
 $labels['octet'] = 'Khắt khe';
 $labels['asciicasemap'] = 'Không phân biệt chữ hoa chữ thường';
 $labels['asciinumeric'] = 'Bảng mã ASCII';
-
-$messages = array();
 $messages['filterunknownerror'] = 'Không tìm được lỗi máy chủ';
 $messages['filterconnerror'] = 'Không kết nối được với máy chủ.';
-$messages['filterdeleteerror'] = 'Không thể xóa bộ lọc. Xuất hiện lỗi ở máy chủ';
 $messages['filterdeleted'] = 'Xóa bộ lọc thành công';
 $messages['filtersaved'] = 'Lưu bộ lọc thành công';
-$messages['filtersaveerror'] = 'Không thể lưu bộ lọc. Xuất hiện lỗi ở máy chủ';
 $messages['filterdeleteconfirm'] = 'Bạn có thực sự muốn xóa bộ lọc được chọn?';
 $messages['ruledeleteconfirm'] = 'Bạn có chắc chắn muốn xóa qui luật được chọn?';
 $messages['actiondeleteconfirm'] = 'Bạn có chắc chắn muốn xóa hành động được chọn?';
 $messages['forbiddenchars'] = 'Ký tự bị cấm trong ô';
 $messages['cannotbeempty'] = 'Ô không thể bị bỏ trống';
 $messages['ruleexist'] = 'Đã tồn tại bộ lọc với tên cụ thế';
-$messages['setactivateerror'] = 'Không thể kích hoạt bộ lọc được lựa chọn. Xuất hiện lỗi ở máy chủ';
-$messages['setdeactivateerror'] = 'Không thể không kích hoạt bộ lọc được lựa chọn. Xuất hiện lỗi ở máy chủ';
-$messages['setdeleteerror'] = 'Không thể xóa bộ lọc được lựa chọn. Forbidden characters in field.';
 $messages['setactivated'] = 'Bộ lọc được khởi động thành công';
 $messages['setdeactivated'] = 'Ngừng kích hoạt bộ lọc thành công';
 $messages['setdeleted'] = 'Xóa bộ lọc thành công';
 $messages['setdeleteconfirm'] = 'Bạn có chắc bạn muốn xóa thiết lập bộ lọc được chọn?';
-$messages['setcreateerror'] = 'Không thể tạo thiết lập bộ lọc. Có lỗi xuất hiện ở máy chủ';
 $messages['setcreated'] = 'Thiết lập bộ lọc được tạo thành công';
-$messages['activateerror'] = 'Không thể khởi động bộ lọc được chọn. Có lỗi xuất hiện ở máy chủ';
-$messages['deactivateerror'] = 'Không thể tắt bộ lọc đã chọn. Có lỗi xuất hiện ở máy chủ';
 $messages['deactivated'] = 'Bộ lọc được khởi động thành công';
 $messages['activated'] = 'Bộ lọc được tắt thành công';
 $messages['moved'] = 'Bộ lọc được chuyển đi thành công';
-$messages['moveerror'] = 'Không thể chuyển bộc lọc đã chọn. Có lỗi xuất hiện ở máy chủ';
 $messages['nametoolong'] = 'Tên quá dài';
 $messages['namereserved'] = 'Tên đã được bảo vệ';
 $messages['setexist'] = 'Thiết lập đã tồn tại';
 $messages['nodata'] = 'Ít nhất một vị trí phải được chọn';
-
 ?>
