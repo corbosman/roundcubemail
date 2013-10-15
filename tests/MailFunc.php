@@ -17,8 +17,6 @@ class MailFunc extends PHPUnit_Framework_TestCase
         $RCMAIL->storage_init(false);
 
         require_once INSTALL_PATH . 'program/steps/mail/func.inc';
-
-        $GLOBALS['EMAIL_ADDRESS_PATTERN'] = $EMAIL_ADDRESS_PATTERN;
     }
 
     /**
@@ -182,5 +180,41 @@ class MailFunc extends PHPUnit_Framework_TestCase
         // base resolving exceptions
         $this->assertRegExp('|src="cid:theCID"|', $html, "URI base resolving exception [1]");
         $this->assertRegExp('|src="http://other\.domain\.tld/img3\.gif"|', $html, "URI base resolving exception [2]");
+    }
+
+    /**
+     * Test identities selection using Return-Path header
+     */
+    function test_rcmail_identity_select()
+    {
+        $identities = array(
+            array(
+                'name' => 'Test',
+                'email_ascii' => 'addr@domain.tld',
+                'ident' => 'Test <addr@domain.tld>',
+            ),
+            array(
+                'name' => 'Test',
+                'email_ascii' => 'thing@domain.tld',
+                'ident' => 'Test <thing@domain.tld>',
+            ),
+            array(
+                'name' => 'Test',
+                'email_ascii' => 'other@domain.tld',
+                'ident' => 'Test <other@domain.tld>',
+            ),
+        );
+
+        $message = new stdClass;
+        $message->headers = new rcube_message_header;
+        $message->headers->set('Return-Path', '<some_thing@domain.tld>');
+        $res = rcmail_identity_select($message, $identities);
+
+        $this->assertSame($identities[0], $res);
+
+        $message->headers->set('Return-Path', '<thing@domain.tld>');
+        $res = rcmail_identity_select($message, $identities);
+
+        $this->assertSame($identities[1], $res);
     }
 }
