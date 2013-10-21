@@ -209,6 +209,7 @@ abstract class rcube_addressbook
     public function validate(&$save_data, $autofix = false)
     {
         $rcube = rcube::get_instance();
+        $valid = true;
 
         // check validity of email addresses
         foreach ($this->get_col_values('email', $save_data, true) as $email) {
@@ -216,12 +217,28 @@ abstract class rcube_addressbook
                 if (!rcube_utils::check_email(rcube_utils::idn_to_ascii($email))) {
                     $error = $rcube->gettext(array('name' => 'emailformaterror', 'vars' => array('email' => $email)));
                     $this->set_error(self::ERROR_VALIDATE, $error);
-                    return false;
+                    $valid = false;
+                    break;
                 }
             }
         }
 
-        return true;
+        // allow plugins to do contact validation and auto-fixing
+        $plugin = $rcube->plugins->exec_hook('contact_validate', array(
+            'record'  => $save_data,
+            'autofix' => $autofix,
+            'valid'   => $valid,
+        ));
+
+        if ($valid && !$plugin['valid']) {
+            $this->set_error(self::ERROR_VALIDATE, $plugin['error']);
+        }
+
+        if (is_array($plugin['record'])) {
+            $save_data = $plugin['record'];
+        }
+
+        return $plugin['valid'];
     }
 
     /**
@@ -515,8 +532,12 @@ abstract class rcube_addressbook
             $fn = join(' ', array($contact['surname'], $contact['firstname'], $contact['middlename']));
         else if ($compose_mode == 1)
             $fn = join(' ', array($contact['firstname'], $contact['middlename'], $contact['surname']));
-        else
+        else if ($compose_mode == 0)
             $fn = !empty($contact['name']) ? $contact['name'] : join(' ', array($contact['prefix'], $contact['firstname'], $contact['middlename'], $contact['surname'], $contact['suffix']));
+        else {
+            $plugin = rcube::get_instance()->plugins->exec_hook('contact_listname', array('contact' => $contact));
+            $fn     = $plugin['fn'];
+        }
 
         $fn = trim($fn, ', ');
 
