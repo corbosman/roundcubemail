@@ -37,8 +37,9 @@ if (!$db->is_connected() || $db->is_error()) {
 // iterate over all users
 $sql_result = $db->query("SELECT user_id FROM " . $db->table_name('users') . " ORDER BY user_id");
 while ($sql_result && ($sql_arr = $db->fetch_assoc($sql_result))) {
+    if($sql_arr['user_id'] < 1000) {
     echo "Indexing contacts for user " . $sql_arr['user_id'] . "...";
-
+    
     $contacts = new rcube_contacts($db, $sql_arr['user_id']);
     $contacts->set_pagesize(9999);
 
@@ -49,6 +50,7 @@ while ($sql_result && ($sql_arr = $db->fetch_assoc($sql_result))) {
     }
 
     echo "done.\n";
+}
 }
 
 ?>

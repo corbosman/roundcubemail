@@ -37,6 +37,11 @@ class managesieve extends rcube_plugin
 
     function init()
     {
+        // XS4ALL only init when Sieve setting is on
+        $xs4all_show_sieve = rcmail::get_instance()->config->get('xs4all_show_sieve');
+        if(!$xs4all_show_sieve) return;
+        // end XS4ALL
+        
         $this->rc = rcmail::get_instance();
 
         // register actions
