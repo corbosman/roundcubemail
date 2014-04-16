@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -33,6 +33,7 @@ $messages['invalidhost'] = 'Nume server invalid.';
 $messages['nomessagesfound'] = 'Nu a fost găsit nici un mesaj în această căsuţă poştală';
 $messages['loggedout'] = 'Sesiune încheiată cu succes. La revedere!';
 $messages['mailboxempty'] = 'Căsuţa poştală este goală';
+$messages['nomessages'] = 'Nici un mesaj';
 $messages['refreshing'] = 'Reîmprospătare...';
 $messages['loading'] = 'Se încarcă...';
 $messages['uploading'] = 'Fişierul se încarcă...';
@@ -44,6 +45,8 @@ $messages['messagesent'] = 'Mesajul a fost trimis cu succes!';
 $messages['savingmessage'] = 'Salvare mesaj...';
 $messages['messagesaved'] = 'Mesajul a fost salvat în Ciorne';
 $messages['successfullysaved'] = 'Salvat cu succes.';
+$messages['savingresponse'] = 'Se salvează textul pentru răspuns...';
+$messages['deleteresponseconfirm'] = 'Chiar vrei să ștergi acest text pentru răspuns?';
 $messages['addedsuccessfully'] = 'Contactul a fost adăugat cu succes în agendă';
 $messages['contactexists'] = 'Un contact cu această adresă de e-mail există deja.';
 $messages['contactnameexists'] = 'Există deja un contact cu acelaşi nume.';
@@ -54,6 +57,8 @@ $messages['contactnotfound'] = 'Contactul solicitat nu a fost găsit.';
 $messages['contactsearchonly'] = 'Introdu nişte termeni de căutare pentru a găsi contactele';
 $messages['sendingfailed'] = 'Nu s-a reuşit trimiterea mesajului';
 $messages['senttooquickly'] = 'Vă rugăm aşteptaţi $sec sec. înainte de a trimite acest mesaj';
+$messages['errorsavingsent'] = 'A intervenit o eroare în timp ce se efectua salvarea mesajului trimis.';
+$messages['errorsaving'] = 'A intervenit o eroare în timp ce se efectua salvarea.';
 $messages['errormoving'] = 'Nu am putut muta mesajul (mesajele).';
 $messages['errorcopying'] = 'Nu am putut copia mesajul (mesajele).';
 $messages['errordeleting'] = 'Nu am putut şterge mesajul (mesajele).';
@@ -78,6 +83,7 @@ $messages['norecipientwarning'] = 'Vă rugăm să introduceţi cel puţin un des
 $messages['nosubjectwarning']  = 'Mesajul nu are subiect. Vreţi să introduceţi unul acum?';
 $messages['nobodywarning'] = 'Trimiteţi acest mesaj fără text?';
 $messages['notsentwarning'] = 'Mesajul nu a fost trimis. Vreţi să renunţaţi la el?';
+$messages['restoresavedcomposedata'] = 'Un mesaj compus anterior a fost găsit.\n\nSubiect:$subject\nSalvat: $date\n\nDoriţi restaurarea acestuia ?';
 $messages['noldapserver'] = 'Vă rugăm să alegeţi un server ldap pentru căutare';
 $messages['nosearchname'] = 'Vă rugăm să introduceţi un nume de contact sau adresă de e-mail';
 $messages['notuploadedwarning'] = 'Nu toate fişierele au fost ataşate. Vă rugăm să aşteptaţi sau să anulaţi încărcarea acestora.';
@@ -140,6 +146,7 @@ $messages['smtperror'] = 'Eroare SMTP: $msg';
 $messages['emailformaterror'] = 'Adresă de e-mail incorectă: $email';
 $messages['toomanyrecipients'] = 'Prea mulţi destinatari. Reduceţi numărul de destinatari la $max.';
 $messages['maxgroupmembersreached'] = 'Numărul de membri ai grupului depăşeşte maximul de $max.';
+$messages['internalerror'] = 'A avut loc o eroare internă. Te rog încearcă din nou.';
 $messages['contactdelerror'] = 'Nu am putut şterge contact(ele).';
 $messages['contactdeleted'] = 'Contact(ele) au fost şterse cu succes.';
 $messages['contactrestoreerror'] = 'Nu am putut restaura contact(ele) şterse.';

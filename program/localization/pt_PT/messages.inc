@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -33,6 +33,7 @@ $messages['invalidhost'] = 'Nome do servidor inválido.';
 $messages['nomessagesfound'] = 'Não existem mensagens nesta pasta.';
 $messages['loggedout'] = 'A sua sessão foi encerrada com sucesso. Até breve!';
 $messages['mailboxempty'] = 'A caixa de entrada está vazia';
+$messages['nomessages'] = 'Não existem mensagens';
 $messages['refreshing'] = 'A actualizar...';
 $messages['loading'] = 'A carregar...';
 $messages['uploading'] = 'A enviar ficheiro...';
@@ -44,6 +45,8 @@ $messages['messagesent'] = 'Mensagem enviada com sucesso';
 $messages['savingmessage'] = 'A guardar mensagem...';
 $messages['messagesaved'] = 'Mensagem guardada como rascunho';
 $messages['successfullysaved'] = 'Guardado com sucesso';
+$messages['savingresponse'] = 'A guardar texto de resposta...';
+$messages['deleteresponseconfirm'] = 'Deseja realmente apagar este texto de resposta?';
 $messages['addedsuccessfully'] = 'Contacto adicionado com sucesso';
 $messages['contactexists'] = 'Já existe um contacto com este e-mail';
 $messages['contactnameexists'] = 'Já existe um contacto com este nome.';
@@ -80,6 +83,7 @@ $messages['norecipientwarning'] = 'Por favor, insira pelo menos um destinatário
 $messages['nosubjectwarning']  = 'O campo "Assunto" não foi preenchido. Deseja incluí-lo agora?';
 $messages['nobodywarning'] = 'Enviar a mensagem sem texto?';
 $messages['notsentwarning'] = 'A mensagem não foi enviada, deseja apagá-la?';
+$messages['restoresavedcomposedata'] = 'Uma mensagem, anteriormente, composta mas não enviada foi encontrado.\n\nAssunto: $subject\nGuardada: $date\n\nDeseja restaurar esta mensagem?';
 $messages['noldapserver'] = 'Seleccione um servidor LDAP para efectuar a pesquisa';
 $messages['nosearchname'] = 'Por favor, insira o nome do contacto ou endereço de e-mail';
 $messages['notuploadedwarning'] = 'Nem todos os anexos foram ainda enviados. Por favor aguarde ou cancele o envio.';

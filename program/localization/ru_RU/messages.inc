@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -32,7 +32,8 @@ $messages['invalidrequest'] = 'Неверный запрос! Информаци
 $messages['invalidhost'] = 'Неверное имя сервера.';
 $messages['nomessagesfound'] = 'Сообщений не найдено';
 $messages['loggedout'] = 'Ваша сессия завершена. Всего доброго!';
-$messages['mailboxempty'] = 'Почтовый ящик пуст.';
+$messages['mailboxempty'] = 'Почтовый ящик пуст';
+$messages['nomessages'] = 'Сообщения отсутствуют';
 $messages['refreshing'] = 'Обновление...';
 $messages['loading'] = 'Загрузка...';
 $messages['uploading'] = 'Файл загружается…';
@@ -44,6 +45,8 @@ $messages['messagesent'] = 'Сообщение отправлено.';
 $messages['savingmessage'] = 'Сохранение сообщения...';
 $messages['messagesaved'] = 'Сохранено в Черновиках.';
 $messages['successfullysaved'] = 'Сохранено.';
+$messages['savingresponse'] = 'Сохранение текста ответа...';
+$messages['deleteresponseconfirm'] = 'Вы действительно хотите удалить этот текст ответа?';
 $messages['addedsuccessfully'] = 'Контакт добавлен в адресную книгу.';
 $messages['contactexists'] = 'Контакт с этим адресом e-mail уже существует.';
 $messages['contactnameexists'] = 'Контакт с таким именем уже существует.';
@@ -80,6 +83,7 @@ $messages['norecipientwarning'] = 'Пожалуйста, введите хотя
 $messages['nosubjectwarning']  = 'Поле Тема не заполнено. Хотите заполнить его сейчас?';
 $messages['nobodywarning'] = 'Отправить сообщение без текста?';
 $messages['notsentwarning'] = 'Сообщение не было отправлено. Вы хотите отказаться от отправки?';
+$messages['restoresavedcomposedata'] = 'Найдено ранее составленное, но неотправленное сообщение.\n\nТема: $subject\nСохранено: $date\n\nХотите восстановить это сообщение?';
 $messages['noldapserver'] = 'Пожалуйста, выберите LDAP сервер для поиска.';
 $messages['nosearchname'] = 'Пожалуйста, введите имя или адрес E-Mail';
 $messages['notuploadedwarning'] = 'Вложения загружены не полностью. Подождите или отмените загрузку.';

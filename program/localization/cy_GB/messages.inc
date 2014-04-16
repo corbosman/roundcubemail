@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -16,10 +16,10 @@
  For translation see https://www.transifex.com/projects/p/roundcube-webmail/resource/messages/
 */
 $messages['errortitle']  = 'Fe gafwyd gwall!';
-$messages['loginfailed']  = 'Methwyd a\'ch mewngofnodi';
-$messages['cookiesdisabled'] = 'Nid yw eich porwr yn derbyn cwcis';
-$messages['sessionerror'] = 'Mae\'r sesiwn yn anghywir neu wedi dod i ben';
-$messages['storageerror'] = 'Methwyd cysylltu a\'r gweinydd IMAP';
+$messages['loginfailed']  = 'Methwyd mewngofnodi.';
+$messages['cookiesdisabled'] = 'Nid yw eich porwr yn derbyn cwcis.';
+$messages['sessionerror'] = 'Mae\'r sesiwn yn anghywir neu wedi dod i ben.';
+$messages['storageerror'] = 'Methwyd cysylltu a\'r gweinydd storfa.';
 $messages['servererror'] = 'Gwall Gweinydd!';
 $messages['servererrormsg'] = 'Gwall Gweinydd: $msg';
 $messages['dberror'] = 'Gwall Cronfa Ddata!';
@@ -32,7 +32,8 @@ $messages['invalidrequest'] = 'Cais annilys! Ni chadwyd unrhyw wybodaeth.';
 $messages['invalidhost'] = 'Enw gweinydd annilys.';
 $messages['nomessagesfound'] = 'Dim negeseuon wedi eu canfod yn y blwch hwn';
 $messages['loggedout'] = 'Rydych wedi gorffen y sesiwn yn llwyddianus. Hwyl fawr!';
-$messages['mailboxempty'] = 'Blwch yn wag';
+$messages['mailboxempty'] = 'Mae\'r blwch yn wag';
+$messages['nomessages'] = 'Dim negeseuon';
 $messages['refreshing'] = 'Yn adnewyddu...';
 $messages['loading'] = 'Yn llwytho...';
 $messages['uploading'] = 'Yn llwytho ffeil i fyny...';
@@ -44,6 +45,8 @@ $messages['messagesent'] = 'Danfonwyd y neges yn llwyddiannus';
 $messages['savingmessage'] = 'Yn cadw neges...';
 $messages['messagesaved'] = 'Cadwyd neges i\'r Drafftiau';
 $messages['successfullysaved'] = 'Cadwyd yn llwyddiannus';
+$messages['savingresponse'] = 'Yn cadw testun ymateb...';
+$messages['deleteresponseconfirm'] = 'Ydych chi wir am ddileu y testun ymateb hwn?';
 $messages['addedsuccessfully'] = 'Cyswllt wedi ei ychwanegu i\'r llyfr cyfeiriadau yn llwyddiannus';
 $messages['contactexists'] = 'Mae cyswllt gyda\'r cyfeiriad e-bost yma yn bodoli\'n barod';
 $messages['contactnameexists'] = 'Mae cyswllt gyda\'r un enw yn bodoli yn barod.';
@@ -54,6 +57,8 @@ $messages['contactnotfound'] = 'Ni gafwyd hyd i\'r cysylltiad gofynnwyd amdano';
 $messages['contactsearchonly'] = 'Rhowch dermau chwilio i ganfod cysylltiadau';
 $messages['sendingfailed'] = 'Methwyd danfon y neges';
 $messages['senttooquickly'] = 'Arhoswch $sec eiliad cyn danfon y neges';
+$messages['errorsavingsent'] = 'Fe gafwyd gwall wrth gadw\'r neges ddanfonwyd.';
+$messages['errorsaving'] = 'Fe gafwyd gwall wrth gadw';
 $messages['errormoving'] = 'Methwyd symud y neges';
 $messages['errorcopying'] = 'Methwyd copïo\'r neges(euon)';
 $messages['errordeleting'] = 'Methwyd dileu y neges';
@@ -78,6 +83,7 @@ $messages['norecipientwarning'] = 'Rhowch o leiaf un derbynnydd';
 $messages['nosubjectwarning']  = 'Mae\'r pennawd "Pwnc" yn wag. Hoffech chi roi un fewn nawr?';
 $messages['nobodywarning'] = 'Danfon y neges hwn heb destun?';
 $messages['notsentwarning'] = 'Ni ddanfonwyd y neges. Hoffech chi gael gwared a\'r neges?';
+$messages['restoresavedcomposedata'] = 'Cafwyd hyd i neges wedi ei ysgrifennu o\'r blaen ond heb ei ddanfon.\n\nPwnc: $subject\nCadwyd: $date\n\nYdych chi am adfer y neges?';
 $messages['noldapserver'] = 'Dewiswch weinydd ldap i chwilio';
 $messages['nosearchname'] = 'Rhowch enw cyswllt neu gyfeiriad e-bost';
 $messages['notuploadedwarning'] = 'Nid yw pob atodiad wedi eu llwytho i fyny eto. Triwch eto neu canslo.';
@@ -140,6 +146,7 @@ $messages['smtperror'] = 'Gwall SMTP: $msg';
 $messages['emailformaterror'] = 'Cyfeiriad e-bost anghywir: $email';
 $messages['toomanyrecipients'] = 'Gormod o dderbynnwyr. Lleihewch y nifer i $max';
 $messages['maxgroupmembersreached'] = 'Mae nifer o aelodau\'r grŵp yn fwy na\'r uchafswm o $max';
+$messages['internalerror'] = 'Fe gafwyd gwall mewnol. Rhowch gynnig arni eto.';
 $messages['contactdelerror'] = 'Methwyd dileu cyswllt';
 $messages['contactdeleted'] = 'Cyswllt wedi ei ddileu yn llwyddiannus';
 $messages['contactrestoreerror'] = 'Methwyd adfer y cyswllt/cysylltiadau a ddilëwyd';

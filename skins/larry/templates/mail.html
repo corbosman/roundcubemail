@@ -5,8 +5,8 @@
 <roundcube:include file="/includes/links.html" />
 <style type="text/css">
 <roundcube:if condition="config:preview_pane == true" />
-	#mailview-top { height: <roundcube:exp expression="!empty(cookie:mailviewsplitter) ? cookie:mailviewsplitter-48 : 276" />px; }
-	#mailview-bottom { top: <roundcube:exp expression="!empty(cookie:mailviewsplitter) ? cookie:mailviewsplitter+6 : 330" />px; height: auto; }
+	#mailview-top { height: 276px; }
+	#mailview-bottom { top: 330px; height: auto; display: block; }
 	#mailpreviewframe { display: block; }
 <roundcube:endif />
 </style>
@@ -27,7 +27,6 @@
 <div id="mailview-left">
 
 <!-- folders list -->
-<div id="folderlist-header"></div>
 <div id="mailboxcontainer" class="uibox listbox">
 <div id="folderlist-content" class="scroller withfooter">
 <roundcube:object name="mailboxlist" id="mailboxlist" class="treelist listing" folder_filter="mail" unreadwrap="%s" />
@@ -115,8 +114,6 @@
 <div id="mailpreviewframe" class="iframebox">
 <roundcube:object name="messagecontentframe" id="messagecontframe" style="width:100%; height:100%" frameborder="0" src="/watermark.html" />
 </div>
-
-<roundcube:object name="message" id="message" class="statusbar" />
 
 </div><!-- end mailview-bottom -->
 

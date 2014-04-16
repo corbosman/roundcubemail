@@ -454,6 +454,9 @@ class rcube_utils
 
         // cut out all contents between { and }
         while (($pos = strpos($source, '{', $last_pos)) && ($pos2 = strpos($source, '}', $pos))) {
+            $nested = strpos($source, '{', $pos+1);
+            if ($nested && $nested < $pos2)  // when dealing with nested blocks (e.g. @media), take the inner one
+                $pos = $nested;
             $length = $pos2 - $pos - 1;
             $styles = substr($source, $pos+1, $length);
 
@@ -619,6 +622,10 @@ class rcube_utils
      */
     public static function parse_host($name, $host = '')
     {
+        if (!is_string($name)) {
+            return $name;
+        }
+
         // %n - host
         $n = preg_replace('/:\d+$/', '', $_SERVER['SERVER_NAME']);
         // %t - host name without first part, e.g. %n=mail.domain.tld, %t=domain.tld
@@ -639,8 +646,7 @@ class rcube_utils
             }
         }
 
-        $name = str_replace(array('%n', '%t', '%d', '%h', '%z', '%s'), array($n, $t, $d, $h, $z, $s[2]), $name);
-        return $name;
+        return str_replace(array('%n', '%t', '%d', '%h', '%z', '%s'), array($n, $t, $d, $h, $z, $s[2]), $name);
     }
 
 
@@ -677,9 +683,17 @@ class rcube_utils
      */
     public static function remote_addr()
     {
-        foreach (array('HTTP_X_FORWARDED_FOR','HTTP_X_REAL_IP','REMOTE_ADDR') as $prop) {
-            if (!empty($_SERVER[$prop]))
-                return $_SERVER[$prop];
+        if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $hosts = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'], 2);
+            return $hosts[0];
+        }
+
+        if (!empty($_SERVER['HTTP_X_REAL_IP'])) {
+            return $_SERVER['HTTP_X_REAL_IP'];
+        }
+
+        if (!empty($_SERVER['REMOTE_ADDR'])) {
+            return $_SERVER['REMOTE_ADDR'];
         }
 
         return '';
@@ -744,39 +758,12 @@ class rcube_utils
      */
     public static function strtotime($date)
     {
-        $date = trim($date);
-
-        // check for MS Outlook vCard date format YYYYMMDD
-        if (preg_match('/^([12][90]\d\d)([01]\d)([0123]\d)$/', $date, $m)) {
-            return mktime(0,0,0, intval($m[2]), intval($m[3]), intval($m[1]));
-        }
-
-        // common little-endian formats, e.g. dd/mm/yyyy (not all are supported by strtotime)
-        if (preg_match('/^(\d{1,2})[.\/-](\d{1,2})[.\/-](\d{4})$/', $date, $m)
-            && $m[1] > 0 && $m[1] <= 31 && $m[2] > 0 && $m[2] <= 12 && $m[3] >= 1970
-        ) {
-            return mktime(0,0,0, intval($m[2]), intval($m[1]), intval($m[3]));
-        }
+        $date = self::clean_datestr($date);
 
         // unix timestamp
         if (is_numeric($date)) {
             return (int) $date;
         }
-
-        // Clean malformed data
-        $date = preg_replace(
-            array(
-                '/GMT\s*([+-][0-9]+)/',                     // support non-standard "GMTXXXX" literal
-                '/[^a-z0-9\x20\x09:+-]/i',                  // remove any invalid characters
-                '/\s*(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s*/i',   // remove weekday names
-            ),
-            array(
-                '\\1',
-                '',
-                '',
-            ), $date);
-
-        $date = trim($date);
 
         // if date parsing fails, we have a date in non-rfc format.
         // remove token from the end and try again
@@ -805,8 +792,8 @@ class rcube_utils
             return $date;
         }
 
-        $dt = false;
-        $date = trim($date);
+        $dt   = false;
+        $date = self::clean_datestr($date);
 
         // try to parse string with DateTime first
         if (!empty($date)) {
@@ -829,6 +816,52 @@ class rcube_utils
         }
 
         return $dt;
+    }
+
+    /**
+     * Clean up date string for strtotime() input
+     *
+     * @param string $date Date string
+     *
+     * @return string Date string
+     */
+    public static function clean_datestr($date)
+    {
+        $date = trim($date);
+
+        // check for MS Outlook vCard date format YYYYMMDD
+        if (preg_match('/^([12][90]\d\d)([01]\d)([0123]\d)$/', $date, $m)) {
+            return sprintf('%04d-%02d-%02d 00:00:00', intval($m[1]), intval($m[2]), intval($m[3]));
+        }
+
+        // Clean malformed data
+        $date = preg_replace(
+            array(
+                '/GMT\s*([+-][0-9]+)/',                     // support non-standard "GMTXXXX" literal
+                '/[^a-z0-9\x20\x09:+-\/]/i',                  // remove any invalid characters
+                '/\s*(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s*/i',   // remove weekday names
+            ),
+            array(
+                '\\1',
+                '',
+                '',
+            ), $date);
+
+        $date = trim($date);
+
+        // try to fix dd/mm vs. mm/dd discrepancy, we can't do more here
+        if (preg_match('/^(\d{1,2})[.\/-](\d{1,2})[.\/-](\d{4})$/', $date, $m)) {
+            $mdy   = $m[2] > 12 && $m[1] <= 12;
+            $day   = $mdy ? $m[2] : $m[1];
+            $month = $mdy ? $m[1] : $m[2];
+            $date  = sprintf('%04d-%02d-%02d 00:00:00', intval($m[3]), $month, $day);
+        }
+        // I've found that YYYY.MM.DD is recognized wrong, so here's a fix
+        else if (preg_match('/^(\d{4})\.(\d{1,2})\.(\d{1,2})$/', $date)) {
+            $date = str_replace('.', '-', $date) . ' 00:00:00';
+        }
+
+        return $date;
     }
 
     /*
@@ -890,10 +923,20 @@ class rcube_utils
      *
      * @param string  Input string (UTF-8)
      * @param boolean True to return list of words as array
+     *
      * @return mixed  Normalized string or a list of normalized tokens
      */
     public static function normalize_string($str, $as_array = false)
     {
+        // replace 4-byte unicode characters with '?' character,
+        // these are not supported in default utf-8 charset on mysql,
+        // the chance we'd need them in searching is very low
+        $str = preg_replace('/('
+            . '\xF0[\x90-\xBF][\x80-\xBF]{2}'
+            . '|[\xF1-\xF3][\x80-\xBF]{3}'
+            . '|\xF4[\x80-\x8F][\x80-\xBF]{2}'
+            . ')/', '?', $str);
+
         // split by words
         $arr = self::tokenize_string($str);
 
@@ -1002,4 +1045,16 @@ class rcube_utils
         return !in_array($str, array('false', '0', 'no', 'off', 'nein', ''), true);
     }
 
+    /**
+     * OS-dependent absolute path detection
+     */
+    public static function is_absolute_path($path)
+    {
+        if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+            return (bool) preg_match('!^[a-z]:[\\\\/]!i', $path);
+        }
+        else {
+            return $path[0] == DIRECTORY_SEPARATOR;
+        }
+    }
 }

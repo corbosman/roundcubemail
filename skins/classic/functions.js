@@ -419,6 +419,7 @@ body_mouseup: function(evt, p)
       && !this.popups[i].toggle
       && (!this.popups[i].editable || !this.target_overlaps(target, this.popups[i].id))
       && (!this.popups[i].sticky || !rcube_mouse_is_over(evt, rcube_find_object(this.popups[i].id)))
+      && !$(target).is('.folder-selector-link') && !$(target).children('.folder-selector-link').length
     ) {
       window.setTimeout('rcmail_ui.show_popup("'+i+'",false);', 50);
     }
@@ -625,7 +626,7 @@ prev_sibling: function(elm)
 
 enable_command: function(p)
 {
-  if (p.command == 'reply-list') {
+  if (p.command == 'reply-list' && rcmail.env.reply_all_mode == 1) {
     var label = rcmail.gettext(p.status ? 'replylist' : 'replyall');
     $('a.button.replyAll').attr('title', label);
   }
@@ -975,8 +976,6 @@ function rcube_init_mail_ui()
         rcmail.addEventListener('responseaftercheck-recent', rcube_render_mailboxlist);
         rcmail.addEventListener('responseafterrefresh', rcube_render_mailboxlist);
         rcmail.addEventListener('afterimport-messages', function(){ rcmail_ui.show_popup('uploadform', false); });
-
-        new rcmail_scroller('#mailboxlist-content', '#mailboxlist-title', '#mailboxlist-footer');
       }
 
       if (rcmail.env.action == 'compose')
@@ -984,14 +983,11 @@ function rcube_init_mail_ui()
       else if (rcmail.env.action == 'show' || rcmail.env.action == 'preview')
         // add menu link for each attachment
         $('#attachment-list > li[id^="attach"]').each(function() {
-          $(this).append($('<a class="drop">').click(function() { rcmail_ui.show_attachmentmenu(this); }));
+          $(this).append($('<a class="drop"></a>').click(function() { rcmail_ui.show_attachmentmenu(this); }));
         });
     }
     else if (rcmail.env.task == 'addressbook') {
       rcmail.addEventListener('afterupload-photo', function(){ rcmail_ui.show_popup('uploadform', false); });
-
-      if (rcmail.gui_objects.folderlist)
-       new rcmail_scroller('#directorylist-content', '#directorylist-title', '#directorylist-footer');
 
       rcmail.gui_object('dragmenu', 'dragmenu');
     }

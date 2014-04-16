@@ -366,6 +366,9 @@ class rcube_mime
                 $address = 'MAILER-DAEMON';
                 $name    = substr($val, 0, -strlen($m[1]));
             }
+            else if (preg_match('/('.$email_rx.')/', $val, $m)) {
+                $name = $m[1];
+            }
             else {
                 $name = $val;
             }
@@ -378,11 +381,16 @@ class rcube_mime
                 }
                 if ($decode) {
                     $name = self::decode_header($name, $fallback);
+                    // some clients encode addressee name with quotes around it
+                    if ($name[0] == '"' && $name[strlen($name)-1] == '"') {
+                        $name = substr($name, 1, -1);
+                    }
                 }
             }
 
             if (!$address && $name) {
                 $address = $name;
+                $name    = '';
             }
 
             if ($address) {
@@ -810,7 +818,7 @@ class rcube_mime
         }
 
         $mime_types = $mime_extensions = array();
-        $regex = "/([\w\+\-\.\/]+)\t+([\w\s]+)/i"; 
+        $regex = "/([\w\+\-\.\/]+)\s+([\w\s]+)/i";
         foreach((array)$lines as $line) {
              // skip comments or mime types w/o any extensions
             if ($line[0] == '#' || !preg_match($regex, $line, $matches))

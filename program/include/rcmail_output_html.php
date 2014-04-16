@@ -5,7 +5,7 @@
  | program/include/rcmail_output_html.php                                |
  |                                                                       |
  | This file is part of the Roundcube Webmail client                     |
- | Copyright (C) 2006-2012, The Roundcube Dev Team                       |
+ | Copyright (C) 2006-2013, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -45,6 +45,7 @@ class rcmail_output_html extends rcmail_output
     protected $footer = '';
     protected $body = '';
     protected $base_path = '';
+    protected $devel_mode = false;
 
     // deprecated names of templates used before 0.5
     protected $deprecated_templates = array(
@@ -64,6 +65,8 @@ class rcmail_output_html extends rcmail_output
     {
         parent::__construct();
 
+        $this->devel_mode = $this->config->get('devel_mode');
+
         //$this->framed = $framed;
         $this->set_env('task', $task);
         $this->set_env('x_frame_options', $this->config->get('x_frame_options', 'sameorigin'));
@@ -80,9 +83,9 @@ class rcmail_output_html extends rcmail_output
         $this->set_env('skin', $skin);
 
         if (!empty($_REQUEST['_extwin']))
-          $this->set_env('extwin', 1);
+            $this->set_env('extwin', 1);
         if ($this->framed || !empty($_REQUEST['_framed']))
-          $this->set_env('framed', 1);
+            $this->set_env('framed', 1);
 
         // add common javascripts
         $this->add_script('var '.self::JS_OBJECT_NAME.' = new rcube_webmail();', 'head_top');
@@ -116,6 +119,7 @@ class rcmail_output_html extends rcmail_output
     public function set_env($name, $value, $addtojs = true)
     {
         $this->env[$name] = $value;
+
         if ($addtojs || isset($this->js_env[$name])) {
             $this->js_env[$name] = $value;
         }
@@ -310,12 +314,14 @@ class rcmail_output_html extends rcmail_output
      */
     public function reset($all = false)
     {
+        $framed = $this->framed;
         $env = $all ? null : array_intersect_key($this->env, array('extwin'=>1, 'framed'=>1));
 
         parent::reset();
 
         // let some env variables survive
         $this->env = $this->js_env = $env;
+        $this->framed = $framed || $this->env['framed'];
         $this->js_labels    = array();
         $this->js_commands  = array();
         $this->script_files = array();
@@ -323,6 +329,11 @@ class rcmail_output_html extends rcmail_output
         $this->header       = '';
         $this->footer       = '';
         $this->body         = '';
+
+        // load defaults
+        if (!$all) {
+            $this->__construct();
+        }
     }
 
     /**
@@ -651,13 +662,34 @@ class rcmail_output_html extends rcmail_output
         }
 
         // add file modification timestamp
-        if (preg_match('/\.(js|css)$/', $file)) {
-            if ($fs = @filemtime($file)) {
-                $file .= '?s=' . $fs;
-            }
+        if (preg_match('/\.(js|css)$/', $file, $m)) {
+            $file = $this->file_mod($file);
         }
 
         return $matches[1] . '=' . $matches[2] . $file . $matches[4];
+    }
+
+    /**
+     * Modify file by adding mtime indicator
+     */
+    protected function file_mod($file)
+    {
+        $fs  = false;
+        $ext = substr($file, strrpos($file, '.') + 1);
+
+        // use minified file if exists (not in development mode)
+        if (!$this->devel_mode && !preg_match('/\.min\.' . $ext . '$/', $file)) {
+            $minified_file = substr($file, 0, strlen($ext) * -1) . 'min.' . $ext;
+            if ($fs = @filemtime($minified_file)) {
+                return $minified_file . '?s=' . $fs;
+            }
+        }
+
+        if ($fs = @filemtime($file)) {
+            $file .= '?s=' . $fs;
+        }
+
+        return $file;
     }
 
     /**
@@ -964,7 +996,7 @@ class rcmail_output_html extends rcmail_output
                   $content = html::quote($this->get_pagetitle());
                 }
                 else if ($object == 'pagetitle') {
-                    if ($this->config->get('devel_mode') && !empty($_SESSION['username']))
+                    if ($this->devel_mode && !empty($_SESSION['username']))
                         $title = $_SESSION['username'].' :: ';
                     else if ($prod_name = $this->config->get('product_name'))
                         $title = $prod_name . ' :: ';
@@ -1165,7 +1197,7 @@ class rcmail_output_html extends rcmail_output
         }
         else if ($attrib['type'] == 'link') {
             $btn_content = isset($attrib['content']) ? $attrib['content'] : ($attrib['label'] ? $attrib['label'] : $attrib['command']);
-            $link_attrib = array('href', 'onclick', 'title', 'id', 'class', 'style', 'tabindex', 'target');
+            $link_attrib = array_merge(html::$common_attrib, array('href', 'onclick', 'tabindex', 'target'));
             if ($attrib['innerclass'])
                 $btn_content = html::span($attrib['innerclass'], $btn_content);
         }
@@ -1184,7 +1216,7 @@ class rcmail_output_html extends rcmail_output
 
         // generate html code for button
         if ($btn_content) {
-            $attrib_str = html::attrib_string($attrib, $link_attrib);
+            $attrib_str = html::attrib_string($attrib, array_merge($link_attrib, array('data-*')));
             $out = sprintf('<a%s>%s</a>', $attrib_str, $btn_content);
         }
 
@@ -1203,26 +1235,17 @@ class rcmail_output_html extends rcmail_output
      */
     public function include_script($file, $position='head')
     {
-        static $sa_files = array();
-
         if (!preg_match('|^https?://|i', $file) && $file[0] != '/') {
-            $file = $this->scripts_path . $file;
-            if ($fs = @filemtime($file)) {
-                $file .= '?s=' . $fs;
-            }
+            $file = $this->file_mod($this->scripts_path . $file);
         }
-
-        if (in_array($file, $sa_files)) {
-            return;
-        }
-
-        $sa_files[] = $file;
 
         if (!is_array($this->script_files[$position])) {
             $this->script_files[$position] = array();
         }
 
-        $this->script_files[$position][] = $file;
+        if (!in_array($file, $this->script_files[$position])) {
+            $this->script_files[$position][] = $file;
+        }
     }
 
     /**
@@ -1606,6 +1629,12 @@ class rcmail_output_html extends rcmail_output
             $out .= $input_host->show();
         }
 
+        if (rcube_utils::get_boolean($attrib['submit'])) {
+            $submit = new html_inputfield(array('type' => 'submit', 'id' => 'rcmloginsubmit',
+                'class' => 'button mainaction', 'value' => $this->app->gettext('login')));
+            $out .= html::p('formbuttons', $submit->show());
+        }
+
         // surround html output with a form tag
         if (empty($attrib['form'])) {
             $out = $this->form_tag(array('name' => $form_name, 'method' => 'post'), $out);
@@ -1668,9 +1697,9 @@ class rcmail_output_html extends rcmail_output
         // add form tag around text field
         if (empty($attrib['form'])) {
             $out = $this->form_tag(array(
-                'name' => "rcmqsearchform",
+                'name'     => "rcmqsearchform",
                 'onsubmit' => self::JS_OBJECT_NAME . ".command('search'); return false",
-                'style' => "display:inline"),
+                'style'    => "display:inline"),
                 $out);
         }
 

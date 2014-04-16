@@ -5,7 +5,7 @@
  | program/steps/addressbook/delete.inc                                  |
  |                                                                       |
  | This file is part of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2009, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -30,8 +30,7 @@ $delcnt = 0;
 $undo_time = $RCMAIL->config->get('undo_timeout', 0);
 $RCMAIL->session->remove('contact_undo');
 
-foreach ($cids as $source => $cid)
-{
+foreach ($cids as $source => $cid) {
     $CONTACTS = rcmail_contact_source($source);
 
     if ($CONTACTS->readonly) {
@@ -51,8 +50,21 @@ foreach ($cids as $source => $cid)
     $deleted = !$plugin['abort'] ? $CONTACTS->delete($cid, $undo_time < 1) : $plugin['result'];
 
     if (!$deleted) {
-        $OUTPUT->show_message($plugin['message'] ? $plugin['message'] : 'contactdelerror', 'error');
-        $OUTPUT->command('list_contacts');
+        if ($plugin['message']) {
+            $error = $plugin['message'];
+        }
+        else if (($error = $CONTACTS->get_error()) && $error['message']) {
+            $error = $error['message'];
+        }
+        else {
+            $error = 'contactdelerror';
+        }
+
+        $source = rcube_utils::get_input_value('_source', rcube_utils::INPUT_GPC);
+        $group  = rcube_utils::get_input_value('_gid', rcube_utils::INPUT_GPC);
+
+        $OUTPUT->show_message($error, 'error');
+        $OUTPUT->command('list_contacts', $source, $group);
         $OUTPUT->send();
     }
     else {
@@ -113,8 +125,8 @@ $OUTPUT->command('set_rowcount', rcmail_get_rowcount_text($result));
 
 if (!empty($_SESSION['contact_undo'])) {
     $_SESSION['contact_undo']['ts'] = time();
-    $msg = html::span(null, rcube_label('contactdeleted'))
-        . ' ' . html::a(array('onclick' => JS_OBJECT_NAME.".command('undo', '', this)"), rcube_label('undo'));
+    $msg = html::span(null, $RCMAIL->gettext('contactdeleted'))
+        . ' ' . html::a(array('onclick' => rcmail_output::JS_OBJECT_NAME.".command('undo', '', this)"), $RCMAIL->gettext('undo'));
 
     $OUTPUT->show_message($msg, 'confirmation', null, true, $undo_time);
 }

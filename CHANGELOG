@@ -1,32 +1,98 @@
 CHANGELOG Roundcube Webmail
 ===========================
 
-- Fix failing vCard import when email address field contains spaces (#1489386)
-- Fix default spell-check configuration after Google suspended their spell service
-- Fix vulnerability in handling _session argument of utils/save-prefs (#1489382)
-- Fix iframe onload for upload errors handling (#1489379)
-- Fix address matching in Return-Path header on identity selection (#1489374)
+- Apply user-specific replacements to group's base_dn property (#1489779)
+- Fix bug where "With attachment" option in search filter wasn't selected after return from mail view (#1489774)
+- Fix "washing" of unicoded style attributes (#1489777)
+- Fix unintentional redirect from compose page in Webkit browsers (#1489789)
+- Fix messages index cache update under some conditions (e.g. proxy) (#1489756)
+- Fix lack of translation of special folders in some configurations (#1489799)
+- Fix XSS issue in plain text spellchecker (#1489806)
+- Fix invalid page title for some folders (1489804)
+
+RELEASE 1.0.0
+-------------
+- Fix style of disabled protocol handler link on IE (#1489569)
+- Fix message import dialog when no file is selected (#1489685)
+- Fix opening compose screen in new window after saving as draft (#1489643)
+- Added toolbar button to move message in message view
+- Fix directories check in Installer on Windows (#1489576)
+- Fix issue when default_addressbook option is set to integer value (#1489407)
+- Fix Opera > 15 detection (#1489562)
+- Fix security issue in DomainFactory driver of Password plugin
+- Fix invalid X-Draft-Info on forwarded message draft (#1489587)
+- Fix regression in handling of 'attachments' result in message_compose hook (#1489627)
+- Fix issue where msgexport.sh printed the message to STDOUT instead of a file (#1489634)
+- Fix fatal error in database_attachments plugin under some conditions (#1489726)
+
+RELEASE 1.0-rc
+--------------
+- Small CSS fix with message notice boxes in Larry skin (#1489497)
+- Include groups in contacts search on mail compose (#1489082)
+- Add mime-type mapping for .7z files (#1489512)
+- Invoke update scripts with php to circumvent execution restrictions (#1489322)
+- Fix drag & drop message/contact moving on touch device (#1489431)
+- Fix canned responses in HTML mode (#1489536)
+- Check/create default folders on every login not only the first (#1489423)
+- Update to jQuery-1.11.0 and jQuery-UI-1.9.2
+- Support SMTP socket context options via new config option 'smtp_conn_options'
+- Fix compatibility with PHP 5.2 in html.php file (#1489514)
+- Remove expand/collapse with plus/minus keys (on numeric keypad) (#1489513)
+- Fix issue where filesystem path was added to all-attachments (zip) file (#1489507)
+- Fix case-sensitivity of email addresses handling on compose (#1485499)
+- Don't alter Message-ID of a draft when sending (#1489409)
+- Fix issue where deprecated syntax for HTML lists was not handled properly (#1488768)
+- Display different icons when Trash folder is empty or full (#1485775)
+- Remember last position of more headers switch (#1488323)
+- Fix so message flags modified by another client are applied on the list on refresh (#1485186)
+- Fix broken text/* attachments when forwarding/editing a message (#1489426)
+- Improved minified files handling, added css minification (#1486988)
+- Fix handling of X-Forwarded-For header with multiple addresses (#1489481)
+- Fix border issue on folders list in classic skin (#1489473)
+- Implemented menu actions to copy/move messages, added folder-selector widget (#1484086)
+- Fix security rules in .htaccess preventing access to base URL without the ending slash (#1489477)
+- Fix regression where only first new folder was placed in correct place on the list (#1489472)
+- Fix issue where children of selected and collapsed thread were skipped on various actions (#1489457)
+- Fix issue where groups were not deleted when "Replace entire addressbook" option on contacts import was used (#1489420)
+- Fix unreliable mimetype tests in Installer (#1489453)
+- Fix performance of listing writeable folders (#1489451)
+
+RELEASE 1.0-beta
+----------------
+- Fix handling of invalid closing tags in HTML messages (#1489446)
+- Set real content-type for file downloads (#1489439)
+- Update TinyMCE to version 3.5.10 (#1489442)
+- Fix keyboard navigation in list widgets (#1489392)
+- Allow plugins to grab the reference of opened windows (#1489413)
+- Larry skin: Improved status message display for better visibility (#1488974)
+- Fix Internet Explorer 11 detection (#1489434)
+- Fix date column width to fit the widest possible date format (#1489368)
+- Move certain user preference options to a collapsed "advanced" block (#1488829)
+- Add file type icons for Powerpoint and Open Office presentations (#1489225)
+- Fix operations on folders with trailing spaces in name (#1489419)
+- Improve identity selection based on From: header (#1489378)
+- Fix issue where mails with inline images of the same name contained only the first image multiple times (#1489406)
+- Use left/right arrow keys to collapse/expand thread and spacebar to select a row, change Ctrl key behavior (#1489392)
+- Fix an issue where using arrow keys to go up a list can result in selected message being under headers (#1489403)
+- Fix an issue where Home/End keys don't focus list row properly, don't scrollTo properly (#1489396)
+- Add an option to disable smart Reply-List behaviour - reply_all_mode (#1488734)
+- Fix an issue where pressing minus key on contacts list was hiding list records (#1489393)
+- Fix an issue where shift + arrow-up key wasn't selecting all messages in collapsed thread (#1489397)
+- Added icon for priority column in messages list header (#1489234)
+- New feature "Canned Responses" to save and recall boilerplate text snippets
 - Fix HTML part detection when encapsulated inside multipart/signed (#1489372)
-- Fix text wrapping issue with long unwrappable lines (#1489371)
 - Add spellchecker backend for the After the Deadline service
 - Replace markdown-style [1] link indexes in plain text email bodies
-- Fixed issues where HTML comments inside style tag would hang Internet Explorer
 - Improved mailto: link arguments handling (#1489363)
 - Use DOMDocument LIBXML_PARSEHUGE and LIBXML_COMPACT options if possible (#1489302)
 - Support HTTP_HOST, SERVER_NAME and SERVER_ADDR values in include_host_config feature
-- Hide Delivery Status Notification option when smtp_server is unset (#1489336)
 - Make default font size for HTML messages configurable (request #118)
-- Display full attachment name using title attribute when name is too long to display (#1489320)
 - Fix XSS issue in addressbook group name field [CVE-2013-5646] (#1489333)
-- Fix attachment icon issue when rare font/language is used (#1489326)
 - After message is sent refresh messages list of replied message folder (#1489249)
 - Add option force specified domain in user login - username_domain_forced (#1489264)
-- Fix expanded thread root message styling after refreshing messages list (#1489327)
-- Fix issue where From address was removed from Cc and Bcc fields when editing a draft (#1489319)
 - Add option to import Vcards with group assignments
 - Save groups membership in Vcard export (#1488509)
 - Workaround broken PHP function timezone_name_from_abbr (#1489261)
-- Fix error_reporting directive check (#1489323)
 - Make cached message size limit configurable - messages_cache_threshold (#1489317)
 - Log also failed logins to userlogins log
 - Add temp_dir_ttl configuration option (#1489304)
@@ -86,6 +152,23 @@ CHANGELOG Roundcube Webmail
 - Extended archive plugin with user-configurable options to store messages into subfolders
 - Fix export of selected contacts from search result (#1488905)
 - Feature to export only selected contacts from addressbook (by Phil Weir)
+
+RELEASE 0.9.5
+-------------
+- Fix failing vCard import when email address field contains spaces (#1489386)
+- Fix default spell-check configuration after Google suspended their spell service
+- Fix vulnerability in handling _session argument of utils/save-prefs [CVE-2013-6172] (#1489382)
+- Fix iframe onload for upload errors handling (#1489379)
+- Fix address matching in Return-Path header on identity selection (#1489374)
+- Fix text wrapping issue with long unwrappable lines (#1489371)
+- Fixed issues where HTML comments inside style tag would hang Internet Explorer
+- Hide Delivery Status Notification option when smtp_server is unset (#1489336)
+- Display full attachment name using title attribute when name is too long to display (#1489320)
+- Fix attachment icon issue when rare font/language is used (#1489326)
+- Fix expanded thread root message styling after refreshing messages list (#1489327)
+- Fix issue where From address was removed from Cc and Bcc fields when editing a draft (#1489319)
+- Fix error_reporting directive check (#1489323)
+- Fix de_DE localization of "About" label in Help plugin (#1489325)
 
 RELEASE 0.9.4
 -------------

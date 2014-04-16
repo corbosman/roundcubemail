@@ -3,6 +3,9 @@
 # In 'translator' mode files will contain empty translated texts
 # where translation is not available, we'll remove these later
 
+# Note: there's a bug in txclib, so if the command below doesn't
+# work see https://github.com/transifex/transifex-client/commit/a80320735973dd608b48520bf3b89ad53e2b088b
+
 tx --debug pull -a --mode translator
 
 PWD=`dirname "$0"`
@@ -33,3 +36,9 @@ done
 for file in $PWD/../plugins/*/localization/*.inc; do
     do_clean $file
 done
+
+# remove empty localization files
+for file in $PWD/../program/localization/*/labels.inc; do grep -q -E '\$labels' $file || rm $file; done
+for file in $PWD/../program/localization/*/messages.inc; do grep -q -E '\$messages' $file || rm $file; done
+for file in $PWD/../plugins/*/localization/*.inc; do grep -q -E '\$(labels|messages)' $file || rm $file; done
+

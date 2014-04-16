@@ -61,6 +61,9 @@ function rcmail_editor_init(config)
         if (!active)
           rcmail.spellcheck_state();
       });
+      ed.onKeyPress.add(function(ed, e) {
+          rcmail.compose_type_activity++;
+      });
     }
   }
 
@@ -161,8 +164,8 @@ function rcmail_editor_images()
 
   for (i in files) {
     att = files[i];
-    if (att.complete && att.mimetype.indexOf('image/') == 0) {
-      list.push([att.name, rcmail.env.comm_path+'&_action=display-attachment&_file='+i+'&_id='+rcmail.env.compose_id]);
+    if (att.complete && att.mimetype.startsWith('image/')) {
+      list.push([att.name, rcmail.env.comm_path+'&_id='+rcmail.env.compose_id+'&_action=display-attachment&_file='+i]);
     }
   }
 

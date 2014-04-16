@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -32,7 +32,8 @@ $messages['invalidrequest'] = 'Neispravan zahtjev! Podaci nisu sačuvani.';
 $messages['invalidhost'] = 'Neispravno ime servera.';
 $messages['nomessagesfound'] = 'Nema poruka u ovom sandučetu.';
 $messages['loggedout'] = 'Uspješno ste se odjavili. Doviđenja!';
-$messages['mailboxempty'] = 'Sanduče je prazno.';
+$messages['mailboxempty'] = 'Sanduče je prazno';
+$messages['nomessages'] = 'Nema poruka';
 $messages['refreshing'] = 'Osvježavam...';
 $messages['loading'] = 'Učitavanje...';
 $messages['uploading'] = 'Dodajem datoteku...';
@@ -44,6 +45,8 @@ $messages['messagesent'] = 'Poruka je uspješno poslana.';
 $messages['savingmessage'] = 'Poruka se snima...';
 $messages['messagesaved'] = 'Poruka je uspješno sačuvana u skicama.';
 $messages['successfullysaved'] = 'Uspješno sačuvano.';
+$messages['savingresponse'] = 'Snimam teksta odgovora...';
+$messages['deleteresponseconfirm'] = 'Da li zaista želite obrisati tekst ovog odgovora?';
 $messages['addedsuccessfully'] = 'Kontakt uspješno dodan u adresar.';
 $messages['contactexists'] = 'Kontakt sa ovom email adresom već postoji u adresaru.';
 $messages['contactnameexists'] = 'Kontakt s tim imenom već postoji.';
@@ -54,6 +57,8 @@ $messages['contactnotfound'] = 'Traženi kontakt nije pronađen.';
 $messages['contactsearchonly'] = 'Unesite neki pojam za pretragu';
 $messages['sendingfailed'] = 'Greška pri slanju poruke.';
 $messages['senttooquickly'] = 'Molimo sačekajte $sec sekundi prije slanja ove poruke.';
+$messages['errorsavingsent'] = 'Desila se greška pri snimanju poslane poruke.';
+$messages['errorsaving'] = 'Desila se greška pri snimanju.';
 $messages['errormoving'] = 'Nije moguće premjestiti poruke.';
 $messages['errorcopying'] = 'Nije moguće kopirati poruke.';
 $messages['errordeleting'] = 'Nije moguće obrisati poruke.';
@@ -78,6 +83,7 @@ $messages['norecipientwarning'] = 'Molimo vas da upišete barem jednog primaoca.
 $messages['nosubjectwarning']  = 'Polje \'Naslov\' je prazno. Želite li unijeti naslov?';
 $messages['nobodywarning'] = 'Želite li poslati poruku bez teksta?';
 $messages['notsentwarning'] = 'Poruka nije poslana. Želite li odbaciti ovu poruku?';
+$messages['restoresavedcomposedata'] = 'Pronađena je prethodno napisana poruka koja nije poslana..\n\nTema:$subject\nSnimljeno: $date\n\nŽelite li vratiti ovu poruku?';
 $messages['noldapserver'] = 'Molimo vas da odaberete LDAP server za pretragu.';
 $messages['nosearchname'] = 'Molimo vas da upišete ime kontakta ili email adresu.';
 $messages['notuploadedwarning'] = 'Neki od priloga još nisu dodani na server. Molimo vas da sačekate ili da otkažete dodavanje.';
@@ -140,6 +146,7 @@ $messages['smtperror'] = 'SMTP greška: $msg';
 $messages['emailformaterror'] = 'Netačna email adresa: $email';
 $messages['toomanyrecipients'] = 'Previše primaoca. Smanjite broj primaoca na $max.';
 $messages['maxgroupmembersreached'] = 'Broj članova grupe prelazi maksimum od $max.';
+$messages['internalerror'] = 'Dogodila se interna greška. Molimo vas da pokušate ponovo.';
 $messages['contactdelerror'] = 'Kontakti ne mogu biti obrisani.';
 $messages['contactdeleted'] = 'Kontakti su uspješno obrisani.';
 $messages['contactrestoreerror'] = 'Nije moguće vratiti obrisane kontakte.';

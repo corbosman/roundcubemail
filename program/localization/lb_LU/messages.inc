@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -32,7 +32,8 @@ $messages['invalidrequest'] = 'Ongëlteg Ufro! Et goufe keng Date gespäichert.'
 $messages['invalidhost'] = 'Ongëltege Server-Numm.';
 $messages['nomessagesfound'] = 'Keng Messagen an der Mailbox fonnt.';
 $messages['loggedout'] = 'Du hues dech erfollegräich ofgemellt. Äddi!';
-$messages['mailboxempty'] = 'D\'Mailbox ass eidel.';
+$messages['mailboxempty'] = 'D\'Mailbox ass eidel';
+$messages['nomessages'] = 'Keng Messagen';
 $messages['refreshing'] = 'Lueden nei...';
 $messages['loading'] = 'Lueden...';
 $messages['uploading'] = 'Fichier gëtt eropgelueden...';
@@ -44,6 +45,8 @@ $messages['messagesent'] = 'Message erfollegräich verschéckt.';
 $messages['savingmessage'] = 'Message gëtt gespäichert...';
 $messages['messagesaved'] = 'Message als Brouillon gespäichert.';
 $messages['successfullysaved'] = 'Erfollegräich gespäichert.';
+$messages['savingresponse'] = 'Äntwert-Text gëtt gespäichert...';
+$messages['deleteresponseconfirm'] = 'Wëlls du dësen Äntwert-Text wierklech läschen?';
 $messages['addedsuccessfully'] = 'Kontakt erfollegräich an d\'Adressbuch gesat.';
 $messages['contactexists'] = 'Et existéiert schon e Kontakt mat der selweschter E-Mail-Adress.';
 $messages['contactnameexists'] = 'Et existéiert schon e Kontakt mam selweschten Numm.';
@@ -54,6 +57,8 @@ $messages['contactnotfound'] = 'Den ugefrotene Kontakt gouf net fonnt.';
 $messages['contactsearchonly'] = 'Gëff e puer Sichbegrëffer a fir Kontakter ze fannen';
 $messages['sendingfailed'] = 'De Message konnt net verschéckt ginn.';
 $messages['senttooquickly'] = 'Waart wann ech gelift $sec Sekonn(en) bevir s du de Message verschécks. ';
+$messages['errorsavingsent'] = 'Beim Späichere vum geschéckte Message ass e Feeler opgetruden.';
+$messages['errorsaving'] = 'Beim Späicheren ass e Feeler opgetrueden.';
 $messages['errormoving'] = 'D\'Messagë konnten net verréckelt ginn.';
 $messages['errorcopying'] = 'D\'Messagë konnten net kopéiert ginn.';
 $messages['errordeleting'] = 'D\'Messagë konnten net geläscht ginn.';
@@ -78,6 +83,7 @@ $messages['norecipientwarning'] = 'Gëff w.e.gl op mannst een Empfänger an.';
 $messages['nosubjectwarning']  = 'D\'Feld "Sujet" ass eidel. Wëlls du elo eent uginn?';
 $messages['nobodywarning'] = 'Soll dëse Message ouni Text verschéckt ginn?';
 $messages['notsentwarning'] = 'De Message gouf net verschéckt. Wëlls du e verwerfen?';
+$messages['restoresavedcomposedata'] = 'Et gouf e Message fonnt dee scho geschriwwen awer nach net verschéckt ginn ass.\n\nSujet: $subject\nGespäichert: $date\n\nSoll de Message recuperéiert ginn?';
 $messages['noldapserver'] = 'Wiel w.e.gl en LDAP-Server fir d\'Sich aus.';
 $messages['nosearchname'] = 'Gëff w.e.gl en Numm oder eng E-Mail-Adress fir de Kontakt an.';
 $messages['notuploadedwarning'] = 'Net all d\'Unhäng goufen eropgelueden. Waart w.e.gl e Moment oder briech den Upload of.';
@@ -140,6 +146,7 @@ $messages['smtperror'] = 'SMTP-Feeler: $msg';
 $messages['emailformaterror'] = 'Ongëlteg E-Mail-Adress: $email';
 $messages['toomanyrecipients'] = 'Zevill Empfänger. Reduzéier d\'Zuel vun den Empfänger op $max.';
 $messages['maxgroupmembersreached'] = 'D\'Unzuel vu Gruppememberen iwwersteigt de Maximum vun $max.';
+$messages['internalerror'] = 'En interne Feeler ass opgetrueden. Probéier w.e.gl nach eng Kéier.';
 $messages['contactdelerror'] = 'Kontakter konnten net geläscht ginn.';
 $messages['contactdeleted'] = 'Kontakter erfollegräich geläscht.';
 $messages['contactrestoreerror'] = 'Déi geläschte Kontakter konnten net recuperéiert ginn.';

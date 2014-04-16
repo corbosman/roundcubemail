@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -33,6 +33,7 @@ $messages['invalidhost'] = 'Ugyldigt servernavn.';
 $messages['nomessagesfound'] = 'Der blev ikke fundet nogen beskeder i denne postkasse.';
 $messages['loggedout'] = 'Du er nu logget af webmail. Farvel så længe!';
 $messages['mailboxempty'] = 'Postkassen er tom.';
+$messages['nomessages'] = 'Ingen beskeder';
 $messages['refreshing'] = 'Opdaterer...';
 $messages['loading'] = 'Indlæser...';
 $messages['uploading'] = 'Uploader fil...';
@@ -44,6 +45,8 @@ $messages['messagesent'] = 'Beskeden blev afsendt succesfuldt.';
 $messages['savingmessage'] = 'Gemmer besked...';
 $messages['messagesaved'] = 'Beskeden er gemt i kladdemappen.';
 $messages['successfullysaved'] = 'Gemt succesfuldt';
+$messages['savingresponse'] = 'Gemmer svartekst...';
+$messages['deleteresponseconfirm'] = 'Er du sikker på, at du ønsker at slette svarteksten?';
 $messages['addedsuccessfully'] = 'Kontakten blev tilføjet adressebogen.';
 $messages['contactexists'] = 'Der er allerede en kontakt med denne e-mailadresse.';
 $messages['contactnameexists'] = 'En kontakt med samme navn eksisterer allerede.';
@@ -54,6 +57,8 @@ $messages['contactnotfound'] = 'Den søgte kontakt blev ikke fundet.';
 $messages['contactsearchonly'] = 'Indtast søgeord for at finde kontakter.';
 $messages['sendingfailed'] = 'Beskeden kunne ikke sendes.';
 $messages['senttooquickly'] = 'Vent venligst $sec sekunder før du sender denne besked.';
+$messages['errorsavingsent'] = 'Der opstod en fejl ved at gemme den sendte besked.';
+$messages['errorsaving'] = 'Der opstod en fejl ved at gemme.';
 $messages['errormoving'] = 'Beskeden kunne ikke flyttes.';
 $messages['errorcopying'] = 'Beskeden kunne ikke kopieres.';
 $messages['errordeleting'] = 'Beskeden kunne ikke slettes.';
@@ -78,6 +83,7 @@ $messages['norecipientwarning'] = 'Indtast mindst én modtager.';
 $messages['nosubjectwarning']  = '\'Emne\'-feltet er tomt. Kunne du tænke dig at skrive et nu?';
 $messages['nobodywarning'] = 'Send denne besked uden tekst?';
 $messages['notsentwarning'] = 'Beskeden er ikke sendt. Vil du kassere din besked?';
+$messages['restoresavedcomposedata'] = 'En tidligere skreven men usendt besked blev fundet.\n\nEmne: $subject\nGemt: $date\n\nØnsker du at gendanne denne besked?';
 $messages['noldapserver'] = 'Vælg venligst hvilken LDAP-server der skal søges i.';
 $messages['nosearchname'] = 'Indtast venligst en kontakts navn eller e-mailadresse.';
 $messages['notuploadedwarning'] = 'Ikke alle vedhæftede filer er blevet uploadet endnu. Vent venligst eller afbryd upload.';
@@ -140,6 +146,7 @@ $messages['smtperror'] = 'SMTP fejl: $msg';
 $messages['emailformaterror'] = 'Ugyldig e-mailadresse: $email';
 $messages['toomanyrecipients'] = 'For mange modtagere. Reducer antallet af modtagere til $max.';
 $messages['maxgroupmembersreached'] = 'Antallet af gruppemedlemmer overstiger maksimum på $max.';
+$messages['internalerror'] = 'En intern fejl opstod. Prøv venligst igen.';
 $messages['contactdelerror'] = 'Kunne ikke slette kontakt(er).';
 $messages['contactdeleted'] = 'Kontakt(er) slettet.';
 $messages['contactrestoreerror'] = 'Kunne ikke gendanne slettede kontakt(er).';

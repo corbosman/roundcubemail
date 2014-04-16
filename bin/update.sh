@@ -147,7 +147,7 @@ if ($RCI->configured) {
   // check file type detection
   if ($RCI->check_mime_detection()) {
     echo "WARNING: File type detection doesn't work properly!\n";
-    echo "Please check the 'mime_magic' config option or the finfo functions of PHP andrun this script again.\n";
+    echo "Please check the 'mime_magic' config option or the finfo functions of PHP and run this script again.\n";
   }
   if ($RCI->check_mime_extensions()) {
     echo "WARNING: Mimetype to file extension mapping doesn't work properly!\n";
@@ -157,7 +157,7 @@ if ($RCI->configured) {
   // check database schema
   if ($RCI->config['db_dsnw']) {
     echo "Executing database schema update.\n";
-    system(INSTALL_PATH . "bin/updatedb.sh --package=roundcube --version=" . $opts['version']
+    system("php " . INSTALL_PATH . "bin/updatedb.sh --package=roundcube --version=" . $opts['version']
       . " --dir=" . INSTALL_PATH . DIRECTORY_SEPARATOR . "SQL", $res);
 
     $success = !$res;
@@ -165,7 +165,7 @@ if ($RCI->configured) {
 
   // index contacts for fulltext searching
   if ($opts['version'] && version_compare(version_parse($opts['version']), '0.6.0', '<')) {
-    system(INSTALL_PATH . 'bin/indexcontacts.sh');
+    system("php " . INSTALL_PATH . 'bin/indexcontacts.sh');
   }
 
   if ($success) {

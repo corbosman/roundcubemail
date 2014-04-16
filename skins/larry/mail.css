@@ -36,32 +36,24 @@
 	position: absolute;
 	top: 42px;
 	left: 0;
-	width: 100%;
-	bottom: 28px;
-}
-
-#mailview-top.fullheight {
-	border-radius: 4px 4px 0 0;
+	right: 0;
+	bottom: 0px;
+	overflow: visible; /* fixes display issues of fixed list header in IE */
 }
 
 #mailview-bottom {
+	display: none;
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	width: 100%;
-	height: 27px;
+	right: 0;
+	height: 0;
 	border-radius: 4px;
 	border-top: none;
 }
 
 #composeview-right #mailview-bottom {
 	border-radius: 0 0 4px 4px;
-}
-
-#folderlist-header {
-	width: 100%;
-	height: 12px;
-	top: 32px;
 }
 
 #mailboxcontainer,
@@ -100,10 +92,6 @@ html>/**/body #messagelist {
 	background: -ms-linear-gradient(top, #ebebeb 0%, #c6c6c6 100%);
 	background: linear-gradient(top, #ebebeb 0%, #c6c6c6 100%);
 	border-radius: 0 0 4px 4px;
-}
-
-#mailview-top.fullheight #messagelistfooter {
-	border-radius: 0;
 }
 
 #messagelistfooter.rightalign {
@@ -214,6 +202,14 @@ a.iconbutton.threadmode.selected {
 	background-position: 6px -406px;
 }
 
+#mailboxlist li.mailbox.trash.empty > a {
+	background-position: 6px -1924px;
+}
+
+#mailboxlist li.mailbox.trash.empty.selected > a {
+	background-position: 6px -1948px;
+}
+
 #mailboxlist li.mailbox.archive > a {
 	background-position: 6px -1699px;
 }
@@ -252,6 +248,14 @@ a.iconbutton.threadmode.selected {
 
 #mailboxlist li.mailbox ul li.trash.selected > a {
 	background-position: 23px -406px;
+}
+
+#mailboxlist li.mailbox ul li.trash.empty > a {
+	background-position: 23px -1924px;
+}
+
+#mailboxlist li.mailbox ul li.trash.empty.selected > a {
+	background-position: 23px -1948px;
 }
 
 #mailboxlist li.mailbox ul li.archive > a {
@@ -424,12 +428,6 @@ a.iconbutton.threadmode.selected {
 	right: 0;
 }
 
-#messagetoolbar .toolbarselect {
-	position: absolute;
-	bottom: 6px;
-	right: 3px;
-}
-
 #messagesearchtools {
 	position: absolute;
 	right: 0;
@@ -452,11 +450,6 @@ a.iconbutton.threadmode.selected {
 
 
 /*** message list ***/
-
-/* this is necessary to make FF3 display borders */
-body:-moz-last-node #messagelist {
-	border-collapse: separate;
-}
 
 table.messagelist {
 	z-index: 1;
@@ -518,7 +511,7 @@ table.messagelist.fixedcopy {
 }
 
 .messagelist tr td.date {
-	width: 135px;
+	width: 155px;
 }
 
 .messagelist tr.message {
@@ -621,6 +614,10 @@ table.messagelist.fixedcopy {
 	background-position: -24px -1116px;
 }
 
+.messagelist thead tr td.priority span.priority {
+	background-position: -24px -1845px;
+}
+
 .messagelist tr td.priority span.prio5 {
 	background-position: 0 -1905px;
 }
@@ -642,7 +639,7 @@ table.messagelist.fixedcopy {
 }
 
 .messagelist thead tr td.flag span.flagged {
-	background-position: -24px -1036px;
+	background-position: -22px -1036px;
 }
 
 .messagelist tr td.status span.msgicon:hover {
@@ -696,7 +693,7 @@ table.messagelist.fixedcopy {
 }
 
 .messagelist thead tr td.status span.status {
-	background-position: -24px -1016px;
+	background-position: -23px -1017px;
 }
 
 .messagelist tr td div.collapsed {
@@ -753,7 +750,7 @@ table.messagelist.fixedcopy {
 	top: 0;
 	left: 0;
 	width: 100%;
-	bottom: 28px;
+	bottom: 0px;
 }
 
 #messagecontframe {
@@ -766,7 +763,7 @@ table.messagelist.fixedcopy {
 	top: 110px;
 	left: 0;
 	width: 100%;
-	bottom: 27px;
+	bottom: 1px;
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 }
@@ -1069,20 +1066,20 @@ div.hide-headers {
 	margin: 8px;
 }
 
-#message-objects div.notice,
-#message-buttons div.notice {
+#message-objects div.notice {
 	display: block;
 	color: #960;
 	border: 1px solid #ffdf0e;
 	background-color: #fef893;
 	background-position: 5px -83px;
-	padding: 6px 12px 4px 30px;
+	padding: 6px 12px 6px 30px;
 	white-space: normal;
 }
 
 #message-objects div a.button,
 #messagebody span.part-notice a.button {
 	margin-left: 10px;
+	margin-top: -1px;
 }
 
 div.message-part,
@@ -1367,10 +1364,8 @@ div.message-partheaders .headers-table td.header {
 	position: absolute;
 	top: 42px;
 	left: 0;
-	width: 100%;
-	bottom: 28px;
-	border-radius: 4px 4px 0 0;
-	border-bottom: none;
+	right: 0;
+	bottom: 0px;
 	overflow: hidden;
 }
 
@@ -1457,7 +1452,6 @@ div.message-partheaders .headers-table td.header {
 	-o-box-shadow: inset 0 1px 0 0 #fff;
 	-webkit-box-shadow: inset 0 1px 0 0 #fff;
 	-moz-box-shadow: inset 0 1px 0 0 #fff;
-
 }
 
 .composeoption {
@@ -1491,6 +1485,7 @@ div.message-partheaders .headers-table td.header {
 	left: 0;
 	right: 260px;
 	bottom: 0;
+	border-radius: 0 0 0 4px;
 }
 
 #composebodycontainer.buttons {
@@ -1504,7 +1499,7 @@ div.message-partheaders .headers-table td.header {
 	bottom: 0;
 	width: 99%;
 	border: 0;
-	border-radius: 0;
+	border-radius: 0 0 0 4px;
 	padding: 8px 0 8px 8px;
 	resize: none;
 	font-family: monospace;

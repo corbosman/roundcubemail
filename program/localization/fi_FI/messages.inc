@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -32,7 +32,8 @@ $messages['invalidrequest'] = 'Virheellinen pyyntö! Tietoa ei tallennettu.';
 $messages['invalidhost'] = 'Virheellinen palvelinnimi.';
 $messages['nomessagesfound'] = 'Kansiossa ei ole sähköpostiviestejä';
 $messages['loggedout'] = 'Sinut on kirjattu ulos järjestelmästä.';
-$messages['mailboxempty'] = 'Kansio on tyhjä';
+$messages['mailboxempty'] = 'Postilaatikko on tyhjä';
+$messages['nomessages'] = 'Ei viestejä';
 $messages['refreshing'] = 'Päivitetään...';
 $messages['loading'] = 'Ladataan...';
 $messages['uploading'] = 'Ladataan tiedostoa palvelimelle...';
@@ -44,6 +45,8 @@ $messages['messagesent'] = 'Viesti lähetetty';
 $messages['savingmessage'] = 'Tallennetaan viestiä...';
 $messages['messagesaved'] = 'Viesti tallennettu "Luonnokset"-kansioon';
 $messages['successfullysaved'] = 'Tallennus onnistui';
+$messages['savingresponse'] = 'Tallennetaan vastaustekstiä...';
+$messages['deleteresponseconfirm'] = 'Haluatko varmasti poistaa tämän vastaustekstin?';
 $messages['addedsuccessfully'] = 'Yhteystieto lisätty osoitekirjaan';
 $messages['contactexists'] = 'Samalla sähköpostiosoitteella on jo olemassa yhteystieto';
 $messages['contactnameexists'] = 'Yhteystieto samalla nimellä on jo olemassa';
@@ -77,9 +80,10 @@ $messages['nonamewarning']  = 'Anna nimi';
 $messages['nopagesizewarning'] = 'Anna sivukoko';
 $messages['nosenderwarning'] = 'Anna lähettäjän sähköpostiosoite';
 $messages['norecipientwarning'] = 'Anna ainakin yksi vastaanottaja';
-$messages['nosubjectwarning']  = '"Otsikko"-kenttä on tyhjä. Haluatko kirjoittaa viestillesi otsikon?';
+$messages['nosubjectwarning']  = '"Aihe"-kenttä on tyhjä. Haluatko kirjoittaa viestillesi aiheen?';
 $messages['nobodywarning'] = 'Lähetetäänkö viesti ilman tekstiä?';
 $messages['notsentwarning'] = 'Viestiä ei lähetetty. Haluatko poistaa viestin?';
+$messages['restoresavedcomposedata'] = 'Löydettiin aiemmin luotu, mutta lähettämätön viesti.\n\nAihe: $subject\nTallennettu: $date\n\nHaluatko palauttaa tämän viestin?';
 $messages['noldapserver'] = 'Valitse LDAP-palvelin';
 $messages['nosearchname'] = 'Anna yhteystiedon nimi tai sähköpostiosoite';
 $messages['notuploadedwarning'] = 'Kaikkia liitteitä ei ole vielä ladattu palvelimelle. Odota tai peruuta lataus.';

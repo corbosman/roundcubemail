@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -33,6 +33,7 @@ $messages['invalidhost'] = 'Nepravilno ime strežnika';
 $messages['nomessagesfound'] = 'V poštnem predalu ni sporočil.';
 $messages['loggedout'] = 'Odjava je bila uspešna.';
 $messages['mailboxempty'] = 'Poštni predal je prazen.';
+$messages['nomessages'] = 'Ni sporočil';
 $messages['refreshing'] = 'Osvežujem...';
 $messages['loading'] = 'Nalaganje...';
 $messages['uploading'] = 'Prenos dokumenta na strežnik...';
@@ -44,6 +45,8 @@ $messages['messagesent'] = 'Sporočilo je bilo uspešno poslano.';
 $messages['savingmessage'] = 'Shranjevanje sporočila...';
 $messages['messagesaved'] = 'Sporočilo je bilo shranjeno v Osnutke';
 $messages['successfullysaved'] = 'Uspešno shranjeno.';
+$messages['savingresponse'] = 'Shranjevanje odgovora...';
+$messages['deleteresponseconfirm'] = 'Ste prepričani, da želite izbrisati ta odgovor?';
 $messages['addedsuccessfully'] = 'Stik je bil uspešno dodan v imenik.';
 $messages['contactexists'] = 'Stik s tem elektronskim naslovom že obstaja.';
 $messages['contactnameexists'] = 'Stik s tem imenom že obstaja';
@@ -54,6 +57,8 @@ $messages['contactnotfound'] = 'Iskanega stika ni bilo mogoče najti.';
 $messages['contactsearchonly'] = 'Vpišite iskalni parameter za iskanje stika';
 $messages['sendingfailed'] = 'Sporočila ni bilo mogoče poslati.';
 $messages['senttooquickly'] = 'Počakajte $sec sekund in nato znova poskusite s pošiljanjem sporočila.';
+$messages['errorsavingsent'] = 'Pri shranjevanju poslanega sporočila je prišlo do napake.';
+$messages['errorsaving'] = 'Pri shranjevanju je prišlo do napake.';
 $messages['errormoving'] = 'Sporočila ni bilo mogoče premakniti.';
 $messages['errorcopying'] = 'Sporočila ni bilo mogoče kopirati.';
 $messages['errordeleting'] = 'Sporočila ni bilo mogoče izbrisati.';
@@ -78,6 +83,7 @@ $messages['norecipientwarning'] = 'Vnesite vsaj enega prejemnika sporočila';
 $messages['nosubjectwarning']  = 'Polje "Zadeva" je prazno. Želite dodati tekst v to polje?';
 $messages['nobodywarning'] = 'Želite poslati sporočilo brez vsebine?';
 $messages['notsentwarning'] = 'Sporočilo ni bilo poslano. Želite zavreči to sporočilo?';
+$messages['restoresavedcomposedata'] = 'Ali želite nadaljevati z urejanjem še neodposlanega osnutka:\n\nZadeva: $subject\nShranjeno dne: $date\n\n ';
 $messages['noldapserver'] = 'Izberite LDAP strežnik, v katerem želite iskati?';
 $messages['nosearchname'] = 'Vnesite ime ali elektronski naslov stika';
 $messages['notuploadedwarning'] = 'Priponke se še nalagajo na strežnik. Počakajte ali prekinite prenos.';
@@ -140,6 +146,7 @@ $messages['smtperror'] = 'Napaka pri pošiljanju:$msg';
 $messages['emailformaterror'] = 'Nepravilen elektronski naslov: $email';
 $messages['toomanyrecipients'] = 'Navedli ste preveč prejemnikov. Zmanjšajte število prejemnikov na $max';
 $messages['maxgroupmembersreached'] = 'Število članov skupine presega največje dovoljeno število $max.';
+$messages['internalerror'] = 'Prišlo je do napake. Poskusite znova.';
 $messages['contactdelerror'] = 'Stika/ov ni bilo mogoče izbrisati';
 $messages['contactdeleted'] = 'Stik/i so bili uspešno izbrisani';
 $messages['contactrestoreerror'] = 'Ni bilo mogoče obnoviti izbrisanih stikov.';

@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -32,7 +32,8 @@ $messages['invalidrequest'] = 'Érvénytelen kérés! Az adatok nem lettek elmen
 $messages['invalidhost'] = 'Hibás szerver hoszt név';
 $messages['nomessagesfound'] = 'A fiók nem tartalmaz leveleket';
 $messages['loggedout'] = 'Sikeres kijelentkezés. Viszontlátásra!';
-$messages['mailboxempty'] = 'A fiók üres';
+$messages['mailboxempty'] = 'A postafiók üres';
+$messages['nomessages'] = 'Nincsenek üzenetek';
 $messages['refreshing'] = 'Frissítés...';
 $messages['loading'] = 'Betöltés...';
 $messages['uploading'] = 'Fájl feltöltése...';
@@ -44,6 +45,8 @@ $messages['messagesent'] = 'Az üzenet elküldve';
 $messages['savingmessage'] = 'Az üzenet mentése...';
 $messages['messagesaved'] = 'Az üzenet elmentve a Piszkozatokhoz';
 $messages['successfullysaved'] = 'A mentés sikerült';
+$messages['savingresponse'] = 'A válasz szövegének mentése...';
+$messages['deleteresponseconfirm'] = 'Biztosan törli ezt a válasz szöveget?';
 $messages['addedsuccessfully'] = 'A kapcsolat hozzáadása a címjegyzékhez megtörtént';
 $messages['contactexists'] = 'Ezzel az e-mail címmel már létezik kapcsolat';
 $messages['contactnameexists'] = 'Ezzel a névvel már létezik kapcsolat';
@@ -54,6 +57,8 @@ $messages['contactnotfound'] = 'A kiválasztott kapcsolat nem található';
 $messages['contactsearchonly'] = 'Adjon meg keresőkifejezéseket a kapcsolatok közti kereséshez';
 $messages['sendingfailed'] = 'Az üzenet elküldése nem sikerült';
 $messages['senttooquickly'] = 'Kérem várjon még $sec másodpercet az üzenet elküldése előtt';
+$messages['errorsavingsent'] = 'Hiba történt az elküldött üzenet mentése közben';
+$messages['errorsaving'] = 'A mentés során hiba lépett fel';
 $messages['errormoving'] = 'Az üzenet(ek)et nem sikerült áthelyezni';
 $messages['errorcopying'] = 'Az üzenet(ek)et nem sikerült másolni';
 $messages['errordeleting'] = 'Az üzenet(ek)et nem sikerült törölni';
@@ -78,6 +83,7 @@ $messages['norecipientwarning'] = 'Legalább egy címzettet adjon meg';
 $messages['nosubjectwarning']  = 'A Tárgy mező üres. Szeretné most kitölteni?';
 $messages['nobodywarning'] = 'Elküldi az üzenetet üresen?';
 $messages['notsentwarning'] = 'Az üzenet még nem lett elküldve. Eldobja az üzenetet?';
+$messages['restoresavedcomposedata'] = 'Egy elkezdett de el nem küldött üzenetet talált a program.\n\Tárgy: $subject\nMentve: $date\n\nSzeretnéd visszaállítani és folytatni ez az üzenetet?';
 $messages['noldapserver'] = 'Adjon meg egy LDAP szervert a kereséshez';
 $messages['nosearchname'] = 'Adja meg a kapcsolat nevét vagy e-mail címét';
 $messages['notuploadedwarning'] = 'Még nem került feltöltésre minden csatolmány. Kérem várjon vagy állítsa le a feltöltést!';
@@ -140,6 +146,7 @@ $messages['smtperror'] = 'SMTP hiba ($code): $msg';
 $messages['emailformaterror'] = 'Helytelen formátumú e-mail cím: $email';
 $messages['toomanyrecipients'] = 'Túl sok a címzett. Csökkentse a címzettek számát maximum $max címre!';
 $messages['maxgroupmembersreached'] = 'A csoport létszáma meghaladja a maximum $max főt';
+$messages['internalerror'] = 'Belső hiba történt. Kérjük próbálja újra!';
 $messages['contactdelerror'] = 'Hiba a kapcsolat(ok) törlésekor';
 $messages['contactdeleted'] = 'Kapcsolat(ok) sikeresen törölve';
 $messages['contactrestoreerror'] = 'Nem sikerült a törölt kapcsolat(ok) helyreállítása';

@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -33,6 +33,7 @@ $messages['invalidhost'] = 'Endereço de servidor inválido.';
 $messages['nomessagesfound'] = 'Nenhuma mensagem encontrada nessa caixa de mensagens';
 $messages['loggedout'] = 'Sua sessão foi finalizada com sucesso. Até logo!';
 $messages['mailboxempty'] = 'A caixa de mensagens está vazia';
+$messages['nomessages'] = 'Sem mensagens';
 $messages['refreshing'] = 'Atualizando...';
 $messages['loading'] = 'Carregando...';
 $messages['uploading'] = 'Enviando arquivo...';
@@ -44,6 +45,8 @@ $messages['messagesent'] = 'Mensagem enviada com sucesso';
 $messages['savingmessage'] = 'Salvando Mensagem...';
 $messages['messagesaved'] = 'Mensagem salva em Rascunhos';
 $messages['successfullysaved'] = 'Salvo com sucesso';
+$messages['savingresponse'] = 'Salvando texto de resposta...';
+$messages['deleteresponseconfirm'] = 'Você realmente deseja apagar este texto de resposta?';
 $messages['addedsuccessfully'] = 'Contato incluído com sucesso no catálogo de endereços.';
 $messages['contactexists'] = 'Já existe um contato com esse mesmo e-mail.';
 $messages['contactnameexists'] = 'Já existe um contato com o mesmo nome.';
@@ -54,6 +57,8 @@ $messages['contactnotfound'] = 'O contato solicitado não foi encontrado.';
 $messages['contactsearchonly'] = 'Informe os termos de pesquisa para localizar os contatos';
 $messages['sendingfailed'] = 'Falha no envio da mensagem.';
 $messages['senttooquickly'] = 'Aguarde $sec s para enviar a mensagem.';
+$messages['errorsavingsent'] = 'Ocorreu um erro ao salvar a mensagem enviada.';
+$messages['errorsaving'] = 'Ocorreu um erro ao salvar.';
 $messages['errormoving'] = 'Não foi possível mover a(s) mensagem(ns).';
 $messages['errorcopying'] = 'Não foi possível copiar a(s) mensagem(ns).';
 $messages['errordeleting'] = 'Não foi possível apagar a(s) mensagem(ns).';
@@ -78,6 +83,7 @@ $messages['norecipientwarning'] = 'Por favor, informe pelo menos um destinatári
 $messages['nosubjectwarning']  = 'O campo "Assunto" está vazio. Deseja incluí-lo agora?';
 $messages['nobodywarning'] = 'Enviar a mensagem sem texto?';
 $messages['notsentwarning'] = 'A mensagem não foi enviada. Deseja descartar sua mensagem?';
+$messages['restoresavedcomposedata'] = 'Uma mensagem criada anteriormente, mas não enviada, foi localizada.\n\nTítulo: $subject\nSalva em: $date\n\nDeseja restaurar esta mensagem?';
 $messages['noldapserver'] = 'Por favor, selecione um servidor LDAP para a pesquisa';
 $messages['nosearchname'] = 'Por favor, informe o nome do contato ou seu endereço de e-mail.';
 $messages['notuploadedwarning'] = 'Há anexos ainda não enviados. Aguarde ou cancele o envio.';
@@ -140,6 +146,7 @@ $messages['smtperror'] = 'Erro SMTP: $msg';
 $messages['emailformaterror'] = 'Endereço de e-mail inválido: $email';
 $messages['toomanyrecipients'] = 'Há muitos destinatários. Reduza o número de destinatários para $max.';
 $messages['maxgroupmembersreached'] = 'O número de membros do grupo excede o máximo de $max';
+$messages['internalerror'] = 'Ocorreu um erro interno. Por favor tente novamente.';
 $messages['contactdelerror'] = 'Não foi possível excluir o(s) contato(s).';
 $messages['contactdeleted'] = 'Contato(s) excluído(s) com sucesso.';
 $messages['contactrestoreerror'] = 'Não foi possivel recuperar o(s) contato(s) excluído(s).';

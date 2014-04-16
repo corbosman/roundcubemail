@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -33,6 +33,7 @@ $messages['invalidhost'] = '正しくないサーバー名です。';
 $messages['nomessagesfound'] = 'このフォルダーにはメッセージはありません。';
 $messages['loggedout'] = 'ログアウトしました。さようなら!';
 $messages['mailboxempty'] = 'メールボックスは空です。';
+$messages['nomessages'] = 'メッセージなし';
 $messages['refreshing'] = '再表示中...';
 $messages['loading'] = '読み込み中...';
 $messages['uploading'] = 'ファイルをアップロード中...';
@@ -44,6 +45,8 @@ $messages['messagesent'] = 'メッセージを送信しました。';
 $messages['savingmessage'] = 'メッセージを保存中...';
 $messages['messagesaved'] = 'メッセージを下書きに保存しました。';
 $messages['successfullysaved'] = '保存しました。';
+$messages['savingresponse'] = '回答の文章を保存中...';
+$messages['deleteresponseconfirm'] = 'この回答の文章を本当に削除しますか?';
 $messages['addedsuccessfully'] = '連絡先をアドレス帳に追加しました。';
 $messages['contactexists'] = '同じメールアドレスの連絡先が既に存在します。';
 $messages['contactnameexists'] = '同じ名前の連絡先が既に存在します。';
@@ -80,6 +83,7 @@ $messages['norecipientwarning'] = '少なくとも1つ宛先を入力してく�
 $messages['nosubjectwarning']  = '件名(Subject)の欄が空です。今、入力しますか?';
 $messages['nobodywarning'] = '本文の無いメッセージを送信しますか?';
 $messages['notsentwarning'] = 'メッセージを送信しませんでした。このメッセージを破棄しますか。';
+$messages['restoresavedcomposedata'] = '以前に作成して未送信のメッセージがあります。\n\n件名: $subject\n保存日: $date\n\nこのメッセージを回復しますか?';
 $messages['noldapserver'] = '検索するLDAPサーバーを選択してください。';
 $messages['nosearchname'] = '連絡先の名前か電子メールアドレスを入力してください。';
 $messages['notuploadedwarning'] = 'すべての添付ファイルのアップロードを完了していません。今しばらく待つか、取り消ししてください。';

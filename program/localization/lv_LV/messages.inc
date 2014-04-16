@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -32,7 +32,6 @@ $messages['invalidrequest'] = 'Nederīgs pieprasījums! Dati netika saglabāti .
 $messages['invalidhost'] = 'Nederīgs servera nosaukums';
 $messages['nomessagesfound'] = 'Šajā pastkastē nav vēstuļu';
 $messages['loggedout'] = 'Jūs esat veiksmīgi atslēdzies no sistēmas. Uz redzēšanos!';
-$messages['mailboxempty'] = 'Pastkaste ir tukša';
 $messages['refreshing'] = 'Atjauno...';
 $messages['loading'] = 'Notiek ielāde...';
 $messages['uploading'] = 'Augšupielāde failu...';
@@ -44,6 +43,8 @@ $messages['messagesent'] = 'Vēstule nosūtīta veiksmīgi';
 $messages['savingmessage'] = 'Vēstule tiek saglabāta ...';
 $messages['messagesaved'] = 'Vēstule saglabāta Uzmetumos';
 $messages['successfullysaved'] = 'Veiksmīgi saglabāts.';
+$messages['savingresponse'] = 'Tiek saglabāts atbildes teksts ...';
+$messages['deleteresponseconfirm'] = 'Vai Jūs tiešām gribat dzēst šo atbildes tekstu?';
 $messages['addedsuccessfully'] = 'Kontakts veiksmīgi pievienots adrešu grāmatai';
 $messages['contactexists'] = 'Kontakts ar šādu e-pasta adresi jau eksistē';
 $messages['contactnameexists'] = 'Kontakts ar šādu vārdu jau eksistē.';
@@ -54,6 +55,8 @@ $messages['contactnotfound'] = 'Pieprasītais kontakts nav atrasts';
 $messages['contactsearchonly'] = 'Lai atrastu kontaktus, ievadiet meklēšanas kritērijus';
 $messages['sendingfailed'] = 'Vēstule netika nosūtīta';
 $messages['senttooquickly'] = 'Lūdzu uzgaidiet $sec sekundi(-es) pirms sūtiet šo vēstuli';
+$messages['errorsavingsent'] = 'Saglabājot nosūtīto vēstuli notika kļūda - vēstule netika saglabāta';
+$messages['errorsaving'] = 'Saglabājot vēstuli notika kļūda - vēstule netika saglabāta';
 $messages['errormoving'] = 'Vēstule(s) netika pārvietota(s)';
 $messages['errorcopying'] = 'Vēstules pārkopēt neizdevās';
 $messages['errordeleting'] = 'Vēstules izdzēst neizdevās';
@@ -78,6 +81,7 @@ $messages['norecipientwarning'] = 'Lūdzu ievadiet vismaz vienu saņēmēju';
 $messages['nosubjectwarning']  = 'Lauks "temats" ir tukšs. Vai vēlaties to aizpildīt tagad?';
 $messages['nobodywarning'] = 'Sūtīt vēstuli bez teksta?';
 $messages['notsentwarning'] = 'Vēstule netika nosūtīta. Vai tiešām vēlaties atcelt vēstules rakstīšanu?';
+$messages['restoresavedcomposedata'] = 'Ir atrasta pirms kāda laika uzrakstīta, bet nenosūtīta vēstule.\n\nTēma: $subject\nSaglabāta:$date\n\nVai atjaunot šo vēstuli?';
 $messages['noldapserver'] = 'Lai meklētu, lūdzu izvēlaties LDAP serveri';
 $messages['nosearchname'] = 'Lūdzu ievadiet kontaktpersonas vārdu vai e-pasta adresi';
 $messages['notuploadedwarning'] = 'Visi pielikumi vēl nav augšupielādēti - lūdzu uzgaidiet vai atceļiet augšupielādi';
@@ -140,6 +144,7 @@ $messages['smtperror'] = 'SMTP kļūda: $msg';
 $messages['emailformaterror'] = 'Nepareiza e-pasta adrese: $email';
 $messages['toomanyrecipients'] = 'Pārāk daudz saņēmēju. Samaziniet skaitu līdz $max.';
 $messages['maxgroupmembersreached'] = 'Grupas dalībnieku skaits pārsniedz limitu $max.';
+$messages['internalerror'] = 'Atgadījās servera iekšējā kļūda. Lūdzu mēģiniet vēlreiz.';
 $messages['contactdelerror'] = 'Kontaktus izdzēst neizdevās.';
 $messages['contactdeleted'] = 'Kontakti izdzēsti veiksmīgi.';
 $messages['contactrestoreerror'] = 'Izdzēstos kontaktus atjaunot neizdevās.';

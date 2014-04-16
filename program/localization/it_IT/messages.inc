@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -32,7 +32,8 @@ $messages['invalidrequest'] = 'Richiesta non valida! Nessun dato salvato.';
 $messages['invalidhost'] = 'Nome del server non valido.';
 $messages['nomessagesfound'] = 'Nessun messaggio trovato in questa cartella';
 $messages['loggedout'] = 'Sessione chiusa correttamente. Arrivederci!';
-$messages['mailboxempty'] = 'La casella è vuota';
+$messages['mailboxempty'] = 'La Mailbox è vuota';
+$messages['nomessages'] = 'Non ci sono messaggi';
 $messages['refreshing'] = 'Aggiornamento...';
 $messages['loading'] = 'Caricamento...';
 $messages['uploading'] = 'Caricamento file...';
@@ -44,6 +45,8 @@ $messages['messagesent'] = 'Messaggio inviato correttamente';
 $messages['savingmessage'] = 'Salvataggio messaggio...';
 $messages['messagesaved'] = 'Messaggio salvato in bozze';
 $messages['successfullysaved'] = 'Salvato correttamente';
+$messages['savingresponse'] = 'Salvataggio della risposta...';
+$messages['deleteresponseconfirm'] = 'Sei sicuro di voler eliminare questa risposta?';
 $messages['addedsuccessfully'] = 'Contatto aggiunto alla rubrica';
 $messages['contactexists'] = 'Esiste già un contatto con questo indirizzo e-mail';
 $messages['contactnameexists'] = 'Esiste già un contatto con questo nome';
@@ -54,6 +57,8 @@ $messages['contactnotfound'] = 'Il contatto richiesto non è stato trovato';
 $messages['contactsearchonly'] = 'Inserisci dei termini per cercare i contatti';
 $messages['sendingfailed'] = 'Impossibile inviare il messaggio';
 $messages['senttooquickly'] = 'Per favore, attendi $sec secondi prima di inviare questo messaggio';
+$messages['errorsavingsent'] = 'Si è verificato un errore nel savare il messaggio inviato.';
+$messages['errorsaving'] = 'Si è verificato un errore nel salvataggio.';
 $messages['errormoving'] = 'Impossibile spostare il messaggio';
 $messages['errorcopying'] = 'Impossibile copiare il messaggio';
 $messages['errordeleting'] = 'Impossibile eliminare il messaggio';
@@ -78,6 +83,7 @@ $messages['norecipientwarning'] = 'Per favore, immetti almeno un destinatario';
 $messages['nosubjectwarning']  = 'L\'oggetto è vuoto. Vuoi inserirlo adesso?';
 $messages['nobodywarning'] = 'Inviare il messaggio senza testo?';
 $messages['notsentwarning'] = 'Il messaggio non è stato inviato. Vuoi annullare questo messaggio?';
+$messages['restoresavedcomposedata'] = 'E\' stato rilevato un precedente messaggio non inviato.\n\nSoggetto: $subject\nSalvato: $date\n\nVuoi ripristinare il messaggio?';
 $messages['noldapserver'] = 'Per favore, scegli un server LDAP in cui ricercare';
 $messages['nosearchname'] = 'Per favore, immetti un nome o un indirizzo e-mail';
 $messages['notuploadedwarning'] = 'Non tutti gli allegati sono stati ancora caricati. Prego attendere, oppure cancellare il caricamento.';
@@ -140,6 +146,7 @@ $messages['smtperror'] = 'Errore SMTP: $msg';
 $messages['emailformaterror'] = 'Indirizzo e-mail non corretto: $email';
 $messages['toomanyrecipients'] = 'Numero eccessivo di destinatari, ridurlo a $max';
 $messages['maxgroupmembersreached'] = 'Il numero dei membri del gruppo eccede il massimo di $max';
+$messages['internalerror'] = 'Si è verificato un errore interno. Riprovare più tardi.';
 $messages['contactdelerror'] = 'Impossibile eliminare il/i contatto/i';
 $messages['contactdeleted'] = 'Contatto/i correttamente eliminato/i';
 $messages['contactrestoreerror'] = 'Impossibile ripristinare il/i contatto/i cancellato/i';

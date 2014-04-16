@@ -21,7 +21,7 @@ class Framework_Browser extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider browsers
      */
-    function test_browser($useragent, $opera, $chrome, $ie, $ns, $ns4, $khtml, $safari, $mz)
+    function test_browser($useragent, $opera, $chrome, $ie, $ns, $safari, $mz)
     {
 
         $object = $this->getBrowser($useragent);
@@ -30,8 +30,6 @@ class Framework_Browser extends PHPUnit_Framework_TestCase
         $this->assertEquals($chrome, $object->chrome, 'Check for Chrome failed');
         $this->assertEquals($ie, $object->ie, 'Check for IE failed');
         $this->assertEquals($ns, $object->ns, 'Check for NS failed');
-        $this->assertEquals($ns4, $object->ns4, 'Check for NS4 failed');
-        $this->assertEquals($khtml, $object->khtml, 'Check for khtml failed');
         $this->assertEquals($safari, $object->safari, 'Check for Safari failed');
         $this->assertEquals($mz, $object->mz, 'Check for MZ failed');
     }
@@ -132,7 +130,7 @@ class Framework_Browser extends PHPUnit_Framework_TestCase
 
     function browsers()
     {
-        return $this->extractDataSet(array('isOpera','isChrome','isIE','isNS','isNS4','isKHTML','isSafari','isMZ'));
+        return $this->extractDataSet(array('isOpera','isChrome','isIE','isNS','isSafari','isMZ'));
     }
 
     function useragents()
@@ -149,8 +147,6 @@ class Framework_Browser extends PHPUnit_Framework_TestCase
                  'isChrome'     => false,                                                                                           //isChrome
                  'isIE'         => false,                                                                                           //isIE
                  'isNS'         => false,                                                                                           //isNS
-                 'isNS4'        => false,                                                                                           //isNS4
-                 'isKHTML'      => false,                                                                                           //isKHTML
                  'isSafari'     => false,                                                                                           //isSafari
                  'isMZ'         => true,                                                                                           //isMZ
                  'lang'         => 'en-US',                                                                               //lang
@@ -169,8 +165,6 @@ class Framework_Browser extends PHPUnit_Framework_TestCase
                  'isChrome'     => false,                                                                                           //isChrome
                  'isIE'         => false,                                                                                           //isIE
                  'isNS'         => false,                                                                                           //isNS
-                 'isNS4'        => false,                                                                                           //isNS4
-                 'isKHTML'      => false,                                                                                           //isKHTML
                  'isSafari'     => false,                                                                                           //isSafari
                  'isMZ'         => true,                                                                                           //isMZ
                  'lang'         => 'en-US',                                                                               //lang
@@ -181,7 +175,7 @@ class Framework_Browser extends PHPUnit_Framework_TestCase
 
             'Chrome Mac' => array(
                  'useragent'    => 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/6.0.461.0 Safari/534.3',
-                 'version'      => '5',                                                                                      //Version
+                 'version'      => '6',                                                                                      //Version
                  'isWin'        => false,                                                                                           //isWindows
                  'isLinux'      => false,
                  'isMac'        => true,                                                                                           //isMac
@@ -190,13 +184,49 @@ class Framework_Browser extends PHPUnit_Framework_TestCase
                  'isChrome'     => true,                                                                                           //isChrome
                  'isIE'         => false,                                                                                           //isIE
                  'isNS'         => false,                                                                                           //isNS
-                 'isNS4'        => false,                                                                                           //isNS4
-                 'isKHTML'      => true,                                                                                           //isKHTML
                  'isSafari'     => false,                                                                                           //isSafari
                  'isMZ'         => false,                                                                                           //isMZ
                  'lang'         => 'en-US',                                                                               //lang
                  'hasDOM'       => false,                                                                                            //hasDOM
                  'canPNGALPHA'  => false,                                                                                            //canPNGALPHA
+                 'canIMGDATA'   => true,                                                                                            //canIMGDATA
+             ),
+
+            'IE 11' => array(
+                 'useragent'    => 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko',
+                 'version'      => '11.0',                                                                                      //Version
+                 'isWin'        => true,                                                                                           //isWindows
+                 'isLinux'      => false,
+                 'isMac'        => false,                                                                                           //isMac
+                 'isUnix'       => false,                                                                                           //isUnix
+                 'isOpera'      => false,                                                                                           //isOpera
+                 'isChrome'     => false,                                                                                           //isChrome
+                 'isIE'         => true,                                                                                           //isIE
+                 'isNS'         => false,                                                                                           //isNS
+                 'isSafari'     => false,                                                                                           //isSafari
+                 'isMZ'         => false,                                                                                           //isMZ
+                 'lang'         => '',                                                                                         //lang
+                 'hasDOM'       => true,                                                                                            //hasDOM
+                 'canPNGALPHA'  => true,                                                                                            //canPNGALPHA
+                 'canIMGDATA'   => false,                                                                                            //canIMGDATA
+             ),
+
+            'Opera 15' => array(
+                 'useragent'    => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.29 Safari/537.36 OPR/15.0.1147.24',
+                 'version'      => '15.0',                                                                                      //Version
+                 'isWin'        => true,                                                                                           //isWindows
+                 'isLinux'      => false,
+                 'isMac'        => false,                                                                                           //isMac
+                 'isUnix'       => false,                                                                                           //isUnix
+                 'isOpera'      => true,                                                                                           //isOpera
+                 'isChrome'     => false,                                                                                           //isChrome
+                 'isIE'         => false,                                                                                           //isIE
+                 'isNS'         => false,                                                                                           //isNS
+                 'isSafari'     => false,                                                                                           //isSafari
+                 'isMZ'         => false,                                                                                           //isMZ
+                 'lang'         => '',                                                                                         //lang
+                 'hasDOM'       => true,                                                                                            //hasDOM
+                 'canPNGALPHA'  => true,                                                                                            //canPNGALPHA
                  'canIMGDATA'   => true,                                                                                            //canIMGDATA
              ),
         );

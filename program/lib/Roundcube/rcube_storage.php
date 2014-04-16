@@ -360,6 +360,18 @@ abstract class rcube_storage
 
 
     /**
+     * Public method for listing message flags
+     *
+     * @param string $folder  Folder name
+     * @param array  $uids    Message UIDs
+     * @param int    $mod_seq Optional MODSEQ value
+     *
+     * @return array Indexed array with message flags
+     */
+    abstract function list_flags($folder, $uids, $mod_seq = null);
+
+
+    /**
      * Public method for listing headers.
      *
      * @param   string   $folder     Folder name
@@ -601,7 +613,7 @@ abstract class rcube_storage
     /**
      * Parse message UIDs input
      *
-     * @param mixed  $uids  UIDs array or comma-separated list or '*' or '1:*'
+     * @param mixed $uids UIDs array or comma-separated list or '*' or '1:*'
      *
      * @return array Two elements array with UIDs converted to list and ALL flag
      */
@@ -620,6 +632,9 @@ abstract class rcube_storage
         else {
             if (is_array($uids)) {
                 $uids = join(',', $uids);
+            }
+            else if (strpos($uids, ':')) {
+                $uids = join(',', rcube_imap_generic::uncompressMessageSet($uids));
             }
 
             if (preg_match('/[^0-9,]/', $uids)) {

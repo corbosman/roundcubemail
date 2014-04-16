@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -33,6 +33,7 @@ $messages['invalidhost'] = 'Špatné jméno serveru.';
 $messages['nomessagesfound'] = 'Ve schránce nebyla nalezena žádná zpráva';
 $messages['loggedout'] = 'Byli jste úspěšně odhlášeni. Na shledanou!';
 $messages['mailboxempty'] = 'Schránka je prázdná';
+$messages['nomessages'] = 'Žádné zprávy';
 $messages['refreshing'] = 'Obnovuji...';
 $messages['loading'] = 'Načítám...';
 $messages['uploading'] = 'Nahrávám soubor...';
@@ -44,6 +45,8 @@ $messages['messagesent'] = 'Zpráva byla odeslána';
 $messages['savingmessage'] = 'Ukládám zprávu...';
 $messages['messagesaved'] = 'Zpráva uložena do Rozepsané';
 $messages['successfullysaved'] = 'Uloženo';
+$messages['savingresponse'] = 'Ukládám text odpovědi...';
+$messages['deleteresponseconfirm'] = 'Opravdu chcete odstranit tento text odpovědi?';
 $messages['addedsuccessfully'] = 'Kontakt byl úspěšně přidán do adresáře';
 $messages['contactexists'] = 'Kontakt se zadanou e-mailovou adresou již existuje';
 $messages['contactnameexists'] = 'Kontakt se stejným jménem již existuje';
@@ -80,6 +83,7 @@ $messages['norecipientwarning'] = 'Zadejte, prosím, alespoň jednoho příjemce
 $messages['nosubjectwarning']  = 'Předmět nebyl vyplňen. Přejete si jej zadat nyní?';
 $messages['nobodywarning'] = 'Opravdu chtete odeslat prázdnou zprávu?';
 $messages['notsentwarning'] = 'Zpráva nebyla odeslána. Přejete si zprávu zahodit?';
+$messages['restoresavedcomposedata'] = 'Byla nalezena dříve vytvořená ale neodeslaná zpráva.\n\nPředmět: $subject\nUloženo: $date\n\nPřejete si obnovit tuto zprávu?';
 $messages['noldapserver'] = 'Zvolte, prosím, LDAP server k hledání';
 $messages['nosearchname'] = 'Zadejte, prosím, jméno nebo e-mail kontaktu';
 $messages['notuploadedwarning'] = 'Ještě nebyly nahrány všechny přílohy. Počkejte prosím nebo nahrávání zrušte.';

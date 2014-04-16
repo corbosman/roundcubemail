@@ -73,6 +73,10 @@ $config['syslog_id'] = 'roundcube';
 // For possible values see installer or http://php.net/manual/en/function.openlog.php
 $config['syslog_facility'] = LOG_USER;
 
+// Activate this option if logs should be written to per-user directories.
+// Data will only be logged if a directry <log_dir>/<username>/ exists and is writable.
+$config['per_user_logging'] = false;
+
 // Log sent messages to <log_dir>/sendmail or to syslog
 $config['smtp_log'] = true;
 
@@ -231,6 +235,19 @@ $config['smtp_helo_host'] = '';
 // timeout > 0 causes connection errors (https://bugs.php.net/bug.php?id=54511)
 $config['smtp_timeout'] = 0;
 
+// SMTP socket context options
+// See http://php.net/manual/en/context.ssl.php
+// The example below enables server certificate validation, and
+// requires 'smtp_timeout' to be non zero.
+// $config['smtp_conn_options'] = array(
+//   'ssl'         => array(
+//     'verify_peer'     => true,
+//     'verify_depth     => 3,
+//     'cafile'          => '/etc/openssl/certs/ca.crt',
+//   ),
+// );
+$config['smtp_conn_options'] = null;
+
 // ----------------------------------
 // LDAP
 // ----------------------------------
@@ -252,6 +269,10 @@ $config['enable_installer'] = false;
 // don't allow these settings to be overriden by the user
 $config['dont_override'] = array();
 
+// define which settings should be listed under the 'advanced' block
+// which is hidden by default
+$config['advanced_prefs'] = array();
+
 // provide an URL where a user can get support for this Roundcube installation
 // PLEASE DO NOT LINK TO THE ROUNDCUBE.NET WEBSITE HERE!
 $config['support_url'] = '';
@@ -272,10 +293,10 @@ $config['user_aliases'] = false;
 
 // use this folder to store log files (must be writeable for apache user)
 // This is used by the 'file' log driver.
-$config['log_dir'] = 'logs/';
+$config['log_dir'] = RCUBE_INSTALL_PATH . 'logs/';
 
 // use this folder to store temp files (must be writeable for apache user)
-$config['temp_dir'] = 'temp/';
+$config['temp_dir'] = RCUBE_INSTALL_PATH . 'temp/';
 
 // expire files in temp_dir after 48 hours
 // possible units: s, m, h, d, w
@@ -615,6 +636,12 @@ $config['upload_progress'] = false;
 // Setting it to 0, disables the feature.
 $config['undo_timeout'] = 0;
 
+// A static list of canned responses which are immutable for the user
+$config['compose_responses_static'] = array(
+//  array('name' => 'Canned Response 1', 'text' => 'Static Response One'),
+//  array('name' => 'Canned Response 2', 'text' => 'Static Response Two'),
+);
+
 // ----------------------------------
 // ADDRESSBOOK SETTINGS
 // ----------------------------------
@@ -681,6 +708,8 @@ $config['ldap_public']['Verisign'] = array(
   // DN and password to bind as before searching for bind DN, if anonymous search is not allowed
   'search_bind_dn' => '',
   'search_bind_pw' => '',
+  // Optional map of replacement strings => attributes used when binding for an individual address book
+  'search_bind_attrib' => array(),  // e.g. array('%udc' => 'ou')
   // Default for %dn variable if search doesn't return DN value
   'search_dn_default' => '',
   // Optional authentication identifier to be used as SASL authorization proxy
@@ -762,14 +791,19 @@ $config['ldap_public']['Verisign'] = array(
   // if the groups base_dn is empty, the contact base_dn is used for the groups as well
   // -> in this case, assure that groups and contacts are separated due to the concernig filters! 
   'groups'  => array(
-    'base_dn'        => '',
-    'scope'          => 'sub',       // Search mode: sub|base|list
-    'filter'         => '(objectClass=groupOfNames)',
-    'object_classes' => array("top", "groupOfNames"),
-    'member_attr'    => 'member',   // Name of the member attribute, e.g. uniqueMember
-    'name_attr'      => 'cn',       // Attribute to be used as group name
-    'member_filter'  => '(objectclass=*)',  // Optional filter to use when querying for group members
-    'vlv'            => false,      // Use VLV controls to list groups
+    'base_dn'           => '',
+    'scope'             => 'sub',       // Search mode: sub|base|list
+    'filter'            => '(objectClass=groupOfNames)',
+    'object_classes'    => array('top', 'groupOfNames'),   // Object classes to be assigned to new groups
+    'member_attr'       => 'member',   // Name of the default member attribute, e.g. uniqueMember
+    'name_attr'         => 'cn',       // Attribute to be used as group name
+    'email_attr'        => 'mail',     // Group email address attribute (e.g. for mailing lists)
+    'member_filter'     => '(objectclass=*)',  // Optional filter to use when querying for group members
+    'vlv'               => false,      // Use VLV controls to list groups
+    'class_member_attr' => array(      // Mapping of group object class to member attribute used in these objects
+      'groupofnames'       => 'member',
+      'groupofuniquenames' => 'uniquemember'
+    ),
   ),
   // this configuration replaces the regular groups listing in the directory tree with
   // a hard-coded list of groups, each listing entries with the configured base DN and filter.
@@ -1010,3 +1044,8 @@ $config['default_font_size'] = '10pt';
 
 // Enables display of email address with name instead of a name (and address in title)
 $config['message_show_email'] = false;
+
+// Default behavior of Reply-All button:
+// 0 - Reply-All always
+// 1 - Reply-List if mailing list is detected
+$config['reply_all_mode'] = 0;

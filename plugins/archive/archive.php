@@ -6,9 +6,9 @@
  * Plugin that adds a new button to the mailbox toolbar
  * to move messages to a (user selectable) archive folder.
  *
- * @version 2.0
+ * @version 2.1
  * @license GNU GPLv3+
- * @author Andre Rodier, Thomas Bruederli
+ * @author Andre Rodier, Thomas Bruederli, Aleksander Machniak
  */
 class archive extends rcube_plugin
 {
@@ -110,19 +110,29 @@ class archive extends rcube_plugin
    */
   function move_messages()
   {
-    $rcmail = rcmail::get_instance();
     $this->add_texts('localization');
 
-    $storage = $rcmail->get_storage();
+    $rcmail         = rcmail::get_instance();
+    $storage        = $rcmail->get_storage();
+    $delimiter      = $storage->get_hierarchy_delimiter();
+    $archive_folder = $rcmail->config->get('archive_mbox');
+    $archive_type   = $rcmail->config->get('archive_type', '');
+
     $storage->set_folder(($current_mbox = rcube_utils::get_input_value('_mbox', RCUBE_INPUT_POST)));
 
-    $delimiter = $storage->get_hierarchy_delimiter();
-    $archive_folder = $rcmail->config->get('archive_mbox');
-    $archive_type = $rcmail->config->get('archive_type', '');
+    $result  = array('reload' => false, 'update' => false, 'errors' => array());
+    $folders = array();
+    $uids    = rcube_utils::get_input_value('_uid', RCUBE_INPUT_POST);
+    $search_request = get_input_value('_search', RCUBE_INPUT_GPC);
 
-    $result = array('reload' => false, 'update' => false, 'errors' => array());
+    if ($uids == '*') {
+      $index = $storage->index(null, rcmail_sort_column(), rcmail_sort_order());
+      $uids  = $index->get();
+    }
+    else {
+      $uids = explode(',', $uids);
+    }
 
-    $uids = explode(',', rcube_utils::get_input_value('_uid', RCUBE_INPUT_POST));
     foreach ($uids as $uid) {
       if (!$archive_folder || !($message = $rcmail->storage->get_message($uid))) {
         continue;
@@ -164,12 +174,27 @@ class archive extends rcube_plugin
       }
 
       // compose full folder path
-      $folder =  $archive_folder . ($subfolder ? $delimiter . $subfolder : '');
+      $folder = $archive_folder . ($subfolder ? $delimiter . $subfolder : '');
 
       // create archive subfolder if it doesn't yet exist
-      if (!$storage->folder_exists($folder, false)) {
-        if ($storage->create_folder($folder, true))
-          $result['reload'] = true;
+      // we'll create all folders in the path
+      if (!in_array($folder, $folders)) {
+        if (empty($list)) {
+          $list = $storage->list_folders('', $archive_folder . '*', 'mail', null, true);
+        }
+        $path = explode($delimiter, $folder);
+
+        for ($i=0; $i<count($path); $i++) {
+          $_folder = implode($delimiter, array_slice($path, 0, $i+1));
+          if (!in_array($_folder, $list)) {
+            if ($storage->create_folder($_folder, true)) {
+              $result['reload'] = true;
+              $list[] = $_folder;
+            }
+          }
+        }
+
+        $folders[] = $folder;
       }
 
       // move message to target folder
@@ -192,7 +217,22 @@ class archive extends rcube_plugin
       $rcmail->output->show_message($this->gettext('archived'), 'confirmation');
     }
 
-    $rcmail->output->command('plugin.move2archive_response', $result);
+    // refresh saved search set after moving some messages
+    if ($search_request && $rcmail->storage->get_search_set()) {
+        $_SESSION['search'] = $rcmail->storage->refresh_search();
+    }
+
+    if ($_POST['_from'] == 'show' && !empty($result['update'])) {
+      if ($next = get_input_value('_next_uid', RCUBE_INPUT_GPC)) {
+        $rcmail->output->command('show_message', $next);
+      }
+      else {
+        $rcmail->output->command('command', 'list');
+      }
+    }
+    else {
+      $rcmail->output->command('plugin.move2archive_response', $result);
+    }
   }
 
   /**
@@ -228,7 +268,7 @@ class archive extends rcube_plugin
       $archive_type->add($this->gettext('archivetypefolder'), 'folder');
 
       $args['blocks']['archive'] = array(
-        'name' => Q(rcube_label('settingstitle', 'archive')),
+        'name' => Q($this->gettext('settingstitle')),
         'options' => array('archive_type' => array(
             'title' => $this->gettext('archivetype'),
             'content' => $archive_type->show($rcmail->config->get('archive_type'))

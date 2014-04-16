@@ -5,7 +5,7 @@
  | localization/<lang>/messages.inc                                      |
  |                                                                       |
  | Localization file of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -32,7 +32,8 @@ $messages['invalidrequest'] = 'Ongeldige aanvraag! Er zijn geen gegevens opgesla
 $messages['invalidhost'] = 'Ongeldige servernaam.';
 $messages['nomessagesfound'] = 'Geen berichten gevonden in deze mailbox.';
 $messages['loggedout'] = 'Succesvol uitgelogd. Tot ziens!';
-$messages['mailboxempty'] = 'Mailbox is leeg.';
+$messages['mailboxempty'] = 'Mailbox is leeg';
+$messages['nomessages'] = 'Geen berichten';
 $messages['refreshing'] = 'Vernieuwen...';
 $messages['loading'] = 'Laden...';
 $messages['uploading'] = 'Bestand wordt geüpload...';
@@ -44,6 +45,8 @@ $messages['messagesent'] = 'Bericht succesvol verstuurd.';
 $messages['savingmessage'] = 'Bericht wordt opgeslagen...';
 $messages['messagesaved'] = 'Bericht opgeslagen in Concepten.';
 $messages['successfullysaved'] = 'Succesvol opgeslagen.';
+$messages['savingresponse'] = 'Reactie wordt opgeslagen...';
+$messages['deleteresponseconfirm'] = 'Weet u zeker dat u deze reactie wilt verwijderen?';
 $messages['addedsuccessfully'] = 'Contactpersoon succesvol toegevoegd aan het adresboek.';
 $messages['contactexists'] = 'Er bestaat al een contactpersoon met dit e-mailadres.';
 $messages['contactnameexists'] = 'Er bestaat al een contactpersoon met deze naam.';
@@ -80,6 +83,7 @@ $messages['norecipientwarning'] = 'Geef tenminste één ontvanger op.';
 $messages['nosubjectwarning']  = 'U heeft geen onderwerp ingevoerd. Wilt u nu een onderwerp opgeven?';
 $messages['nobodywarning'] = 'Dit bericht zonder inhoud versturen?';
 $messages['notsentwarning'] = 'Het bericht is niet verstuurd. Wilt u uw bericht weggooien?';
+$messages['restoresavedcomposedata'] = 'Eerder opgesteld, maar niet-verzonden bericht gevonden.\n\nOnderwerp: $subject\nOpgeslagen: $date\n\nWilt u dit bericht herstellen?';
 $messages['noldapserver'] = 'Selecteer een LDAP-server om te zoeken.';
 $messages['nosearchname'] = 'Vul de naam of e-mailadres in van een contactpersoon.';
 $messages['notuploadedwarning'] = 'Nog niet alle bijlagen zijn geüpload. Wacht even of annuleer de upload.';

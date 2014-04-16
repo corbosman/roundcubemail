@@ -168,10 +168,11 @@ class rcube_plugin_api
      * Load the specified plugin
      *
      * @param string Plugin name
+     * @param boolean Force loading of the plugin even if it doesn't match the filter
      *
      * @return boolean True on success, false if not loaded or failure
      */
-    public function load_plugin($plugin_name)
+    public function load_plugin($plugin_name, $force = false)
     {
         static $plugins_dir;
 
@@ -181,7 +182,7 @@ class rcube_plugin_api
         }
 
         // plugin already loaded
-        if ($this->plugins[$plugin_name] || class_exists($plugin_name, false)) {
+        if ($this->plugins[$plugin_name]) {
             return true;
         }
 
@@ -189,7 +190,9 @@ class rcube_plugin_api
             . DIRECTORY_SEPARATOR . $plugin_name . '.php';
 
         if (file_exists($fn)) {
-            include $fn;
+            if (!class_exists($plugin_name, false)) {
+                include $fn;
+            }
 
             // instantiate class if exists
             if (class_exists($plugin_name, false)) {
@@ -197,7 +200,7 @@ class rcube_plugin_api
                 // check inheritance...
                 if (is_subclass_of($plugin, 'rcube_plugin')) {
                     // ... task, request type and framed mode
-                    if ((!$plugin->task || preg_match('/^('.$plugin->task.')$/i', $this->task))
+                    if (($force || !$plugin->task || preg_match('/^('.$plugin->task.')$/i', $this->task))
                         && (!$plugin->noajax || (is_object($this->output) && $this->output->type == 'html'))
                         && (!$plugin->noframe || empty($_REQUEST['_framed']))
                     ) {
@@ -230,7 +233,7 @@ class rcube_plugin_api
 
     /**
      * Get information about a specific plugin.
-     * This is either provided my a plugin's info() method or extracted from a package.xml or a composer.json file
+     * This is either provided by a plugin's info() method or extracted from a package.xml or a composer.json file
      *
      * @param string Plugin name
      * @return array Meta information about a plugin or False if plugin was not found
@@ -276,13 +279,14 @@ class rcube_plugin_api
         include($fn);
 
       if (class_exists($plugin_name))
-        $info = $plugin_name::info();
+        $info = call_user_func(array($plugin_name, 'info'));
 
       // fall back to composer.json file
       if (!$info) {
         $composer = INSTALL_PATH . "/plugins/$plugin_name/composer.json";
         if (file_exists($composer) && ($json = @json_decode(file_get_contents($composer), true))) {
           list($info['vendor'], $info['name']) = explode('/', $json['name']);
+          $info['version'] = $json['version'];
           $info['license'] = $json['license'];
           if ($license_uri = $license_uris[$info['license']])
             $info['license_uri'] = $license_uri;

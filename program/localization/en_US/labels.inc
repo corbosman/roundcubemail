@@ -64,6 +64,7 @@ $labels['fromtoshort'] = '$from – $to of $count';
 $labels['copy']     = 'Copy';
 $labels['move']     = 'Move';
 $labels['moveto']   = 'Move to...';
+$labels['copyto']   = 'Copy to...';
 $labels['download'] = 'Download';
 $labels['open']     = 'Open';
 $labels['showattachment'] = 'Show';
@@ -231,6 +232,18 @@ $labels['spellcheck']    = 'Spell';
 $labels['checkspelling'] = 'Check spelling';
 $labels['resumeediting'] = 'Resume editing';
 $labels['revertto']      = 'Revert to';
+
+$labels['restore'] = 'Restore';
+$labels['restoremessage'] = 'Restore message?';
+
+$labels['responses'] = 'Responses';
+$labels['insertresponse'] = 'Insert a response';
+$labels['manageresponses'] = 'Manage responses';
+$labels['savenewresponse'] = 'Save new response';
+$labels['editresponses'] = 'Edit responses';
+$labels['editresponse'] = 'Edit response';
+$labels['responsename'] = 'Name';
+$labels['responsetext'] = 'Response Text';
 
 $labels['attach'] = 'Attach';
 $labels['attachments'] = 'Attachments';
@@ -484,6 +497,9 @@ $labels['standardwindows'] = 'Handle popups as standard windows';
 $labels['forwardmode'] = 'Messages forwarding';
 $labels['inline'] = 'inline';
 $labels['asattachment'] = 'as attachment';
+$labels['replyallmode'] = 'Default action of [Reply all] button';
+$labels['replyalldefault'] = 'reply to all';
+$labels['replyalllist'] = 'reply to mailing list only (if found)';
 
 $labels['folder']  = 'Folder';
 $labels['folders']  = 'Folders';
