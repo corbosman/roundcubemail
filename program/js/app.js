@@ -1054,8 +1054,9 @@ function rcube_webmail()
         // Reset the auto-save timer
         clearTimeout(this.save_timer);
 
-        if (!this.upload_file(props || this.gui_objects.uploadform, 'upload')) {
-          alert(this.get_label('selectimportfile'));
+        if (!(flag = this.upload_file(props || this.gui_objects.uploadform, 'upload'))) {
+          if (flag !== false)
+            alert(this.get_label('selectimportfile'));
           aborted = true;
         }
         break;
@@ -1179,12 +1180,15 @@ function rcube_webmail()
         break;
 
       case 'import-messages':
-        var form = props || this.gui_objects.importform;
-        var importlock = this.set_busy(true, 'importwait');
+        var form = props || this.gui_objects.importform,
+          importlock = this.set_busy(true, 'importwait');
+
         $('input[name="_unlock"]', form).val(importlock);
-        if (!this.upload_file(form, 'import')) {
+
+        if (!(flag = this.upload_file(form, 'import'))) {
           this.set_busy(false, null, importlock);
-          alert(this.get_label('selectimportfile'));
+          if (flag !== false)
+            alert(this.get_label('selectimportfile'));
           aborted = true;
         }
         break;
@@ -3385,17 +3389,8 @@ function rcube_webmail()
           $(tinyMCE.get(props.id).getBody()).css('font-family', rcmail.env.default_font);
         }, 500);
     }
-    else {
-      var thisMCE = tinyMCE.get(props.id), existingHtml;
-
-      if (existingHtml = thisMCE.getContent()) {
-        if (!confirm(this.get_label('editorwarning'))) {
-          return false;
-        }
-        this.html2plain(existingHtml, props.id);
-      }
+    else if (this.html2plain(tinyMCE.get(props.id).getContent(), props.id))
       tinyMCE.execCommand('mceRemoveControl', false, props.id);
-    }
 
     return true;
   };
@@ -3973,7 +3968,7 @@ function rcube_webmail()
   this.upload_file = function(form, action)
   {
     if (!form)
-      return false;
+      return;
 
     // count files and size on capable browser
     var size = 0, numfiles = 0;
@@ -4033,8 +4028,6 @@ function rcube_webmail()
       this.gui_objects.attachmentform = form;
       return true;
     }
-
-    return false;
   };
 
   // add file name to attachment list
@@ -6610,8 +6603,9 @@ function rcube_webmail()
 
     // fetch headers only once
     if (!this.gui_objects.all_headers_box.innerHTML) {
-      var lock = this.display_message(this.get_label('loading'), 'loading');
-      this.http_post('headers', {_uid: this.env.uid}, lock);
+      this.http_post('headers', {_uid: this.env.uid, _mbox: this.env.mailbox},
+        this.display_message(this.get_label('loading'), 'loading')
+      );
     }
   };
 
@@ -6740,6 +6734,16 @@ function rcube_webmail()
 
   this.html2plain = function(htmlText, id)
   {
+    // warn the user (if converted content is not empty)
+    if (!htmlText || !(htmlText.replace(/<[^>]+>|&nbsp;|\s/g, '')).length) {
+      // without setTimeout() here, textarea is filled with initial (onload) content
+      setTimeout(function() { $('#'+id).val(''); }, 50);
+      return true;
+    }
+
+    if (!confirm(this.get_label('editorwarning')))
+      return false;
+
     var rcmail = this,
       url = '?_task=utils&_action=html2text',
       lock = this.set_busy(true, 'converting');
@@ -6750,6 +6754,8 @@ function rcube_webmail()
       error: function(o, status, err) { rcmail.http_error(o, status, err, lock); },
       success: function(data) { rcmail.set_busy(false, null, lock); $('#'+id).val(data); rcmail.log(data); }
     });
+
+    return true;
   };
 
   this.plain2html = function(plain, id)
