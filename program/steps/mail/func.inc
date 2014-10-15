@@ -23,40 +23,8 @@
 // always instantiate storage object (but not connect to server yet)
 $RCMAIL->storage_init();
 
-// set imap properties and session vars
-if (strlen(trim($mbox = rcube_utils::get_input_value('_mbox', rcube_utils::INPUT_GPC, true)))) {
-    $RCMAIL->storage->set_folder(($_SESSION['mbox'] = $mbox));
-}
-else if ($RCMAIL->storage) {
-    $_SESSION['mbox'] = $RCMAIL->storage->get_folder();
-}
-
-if (!empty($_GET['_page'])) {
-    $RCMAIL->storage->set_page(($_SESSION['page'] = intval($_GET['_page'])));
-}
-
-$a_threading        = $RCMAIL->config->get('message_threading', array());
-$message_sort_col   = $RCMAIL->config->get('message_sort_col');
-$message_sort_order = $RCMAIL->config->get('message_sort_order');
-
-// set default sort col/order to session
-if (!isset($_SESSION['sort_col'])) {
-    $_SESSION['sort_col'] = $message_sort_col ? $message_sort_col : '';
-}
-if (!isset($_SESSION['sort_order'])) {
-  $_SESSION['sort_order'] = strtoupper($message_sort_order) == 'ASC' ? 'ASC' : 'DESC';
-}
-
-// set threads mode
-if (isset($_GET['_threads'])) {
-    if ($_GET['_threads'])
-        $a_threading[$_SESSION['mbox']] = true;
-    else
-        unset($a_threading[$_SESSION['mbox']]);
-
-    $RCMAIL->user->save_prefs(array('message_threading' => $a_threading));
-}
-$RCMAIL->storage->set_threading($a_threading[$_SESSION['mbox']]);
+// init environment - set current folder, page, list mode
+rcmail_init_env();
 
 // set message set for search result
 if (!empty($_REQUEST['_search']) && isset($_SESSION['search'])
@@ -119,7 +87,7 @@ if (empty($RCMAIL->action) || $RCMAIL->action == 'list') {
 
     // set configuration
     $RCMAIL->set_env_config(array('delete_junk', 'flag_for_deletion', 'read_when_deleted',
-        'skip_deleted', 'display_next', 'message_extwin', 'compose_extwin', 'forward_attachment'));
+        'skip_deleted', 'display_next', 'message_extwin', 'forward_attachment'));
 
     if (!$OUTPUT->ajax_call) {
         $OUTPUT->add_label('checkingmail', 'deletemessage', 'movemessagetotrash',
@@ -166,6 +134,64 @@ $RCMAIL->register_action_map(array(
 ));
 
 
+
+/**
+ * Sets storage properties and session
+ */
+function rcmail_init_env()
+{
+    global $RCMAIL;
+
+    $default_threading  = $RCMAIL->config->get('default_list_mode', 'list') == 'threads';
+    $a_threading        = $RCMAIL->config->get('message_threading', array());
+    $message_sort_col   = $RCMAIL->config->get('message_sort_col');
+    $message_sort_order = $RCMAIL->config->get('message_sort_order');
+
+    // set imap properties and session vars
+    if (!strlen($mbox = rcube_utils::get_input_value('_mbox', rcube_utils::INPUT_GPC, true))) {
+        $mbox = strlen($_SESSION['mbox']) ? $_SESSION['mbox'] : 'INBOX';
+    }
+    if (!($page = intval($_GET['_page']))) {
+        $page = $_SESSION['page'] ? $_SESSION['page'] : 1;
+    }
+
+    $RCMAIL->storage->set_folder($_SESSION['mbox'] = $mbox);
+    $RCMAIL->storage->set_page($_SESSION['page'] = $page);
+
+    // set default sort col/order to session
+    if (!isset($_SESSION['sort_col'])) {
+        $_SESSION['sort_col'] = $message_sort_col ? $message_sort_col : '';
+    }
+    if (!isset($_SESSION['sort_order'])) {
+        $_SESSION['sort_order'] = strtoupper($message_sort_order) == 'ASC' ? 'ASC' : 'DESC';
+    }
+
+    // set threads mode
+    if (isset($_GET['_threads'])) {
+        if ($_GET['_threads']) {
+            // re-set current page number when listing mode changes
+            if (!$a_threading[$_SESSION['mbox']]) {
+                $RCMAIL->storage->set_page($_SESSION['page'] = 1);
+            }
+
+            $a_threading[$_SESSION['mbox']] = true;
+        }
+        else {
+            // re-set current page number when listing mode changes
+            if ($a_threading[$_SESSION['mbox']]) {
+                $RCMAIL->storage->set_page($_SESSION['page'] = 1);
+            }
+
+            $a_threading[$_SESSION['mbox']] = false;
+        }
+
+        $RCMAIL->user->save_prefs(array('message_threading' => $a_threading));
+    }
+
+    $threading = isset($a_threading[$_SESSION['mbox']]) ? $a_threading[$_SESSION['mbox']] : $default_threading;
+
+    $RCMAIL->storage->set_threading($threading);
+}
 
 /**
  * Returns default search mods
@@ -1790,7 +1816,7 @@ function rcmail_send_mdn($message, &$smtp_error)
         $body = $RCMAIL->gettext("yourmessage") . "\r\n\r\n" .
             "\t" . $RCMAIL->gettext("to") . ': ' . rcube_mime::decode_mime_string($message->headers->to, $message->headers->charset) . "\r\n" .
             "\t" . $RCMAIL->gettext("subject") . ': ' . $message->subject . "\r\n" .
-            "\t" . $RCMAIL->gettext("sent") . ': ' . $RCMAIL->format_date($message->headers->date, $RCMAIL->config->get('date_long')) . "\r\n" .
+            "\t" . $RCMAIL->gettext("date") . ': ' . $RCMAIL->format_date($message->headers->date, $RCMAIL->config->get('date_long')) . "\r\n" .
             "\r\n" . $RCMAIL->gettext("receiptnote");
 
         $compose->headers($headers);

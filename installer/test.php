@@ -210,7 +210,6 @@ if ($db_working) {
 
 <h3>Test filetype detection</h3>
 
-<p>
 <?php
 
 if ($errors = $RCI->check_mime_detection()) {
@@ -225,12 +224,9 @@ if ($errors = $RCI->check_mime_detection()) {
 }
 else {
   $RCI->pass('Fileinfo/mime_content_type configuration');
+  echo "<br/>";
 }
 
-?>
-</p>
-<p>
-<?php
 
 if ($errors = $RCI->check_mime_extensions()) {
   $RCI->fail('Mimetype to file extension mapping');
@@ -239,6 +235,7 @@ if ($errors = $RCI->check_mime_extensions()) {
 }
 else {
   $RCI->pass('Mimetype to file extension mapping');
+  echo "<br/>";
 }
 
 ?>
@@ -425,6 +422,11 @@ if (isset($_POST['imaptest']) && !empty($_POST['_host']) && !empty($_POST['_user
   $imap_user = idn_to_ascii($_POST['_user']);
 
   $imap = new rcube_imap(null);
+  $imap->set_options(array(
+    'auth_type' => $RCI->getprop('imap_auth_type'),
+    'debug'     => $RCI->getprop('imap_debug'),
+  ));
+
   if ($imap->connect($imap_host, $imap_user, $_POST['_pass'], $imap_port, $imap_ssl)) {
     $RCI->pass('IMAP connect', 'SORT capability: ' . ($imap->get_capability('SORT') ? 'yes' : 'no'));
     $imap->close();

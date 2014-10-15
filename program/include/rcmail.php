@@ -145,8 +145,13 @@ class rcmail extends rcube
         $this->task      = $task;
         $this->comm_path = $this->url(array('task' => $this->task));
 
+        if (!empty($_REQUEST['_framed'])) {
+            $this->comm_path .= '&_framed=1';
+        }
+
         if ($this->output) {
             $this->output->set_env('task', $this->task);
+            $this->output->set_env('comm_path', $this->comm_path);
         }
     }
 
@@ -429,6 +434,9 @@ class rcmail extends rcube
         if ($this->user && $this->user->ID) {
             $this->output->set_env('user_id', $this->user->get_hash());
         }
+
+        // set compose mode for all tasks (message compose step can be triggered from everywhere)
+        $this->output->set_env('compose_extwin', $this->config->get('compose_extwin',false));
 
         // add some basic labels to client
         $this->output->add_label('loading', 'servererror', 'connerror', 'requesttimedout', 'refreshing');
@@ -1797,17 +1805,17 @@ class rcmail extends rcube
             $lang = 'en';
         }
 
-        $script = json_encode(array(
+        $script = array(
             'mode'       => $mode,
             'lang'       => $lang,
             'skin_path'  => $this->output->get_skin_path(),
             'spellcheck' => intval($this->config->get('enable_spellcheck')),
             'spelldict'  => intval($this->config->get('spellcheck_dictionary'))
-        ));
+        );
 
         $this->output->include_script('tiny_mce/tiny_mce.js');
         $this->output->include_script('editor.js');
-        $this->output->add_script("rcmail_editor_init($script)", 'docready');
+        $this->output->set_env('html_editor_init', $script);
     }
 
     /**

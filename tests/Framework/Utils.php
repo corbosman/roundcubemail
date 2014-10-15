@@ -29,6 +29,7 @@ class Framework_Utils extends PHPUnit_Framework_TestCase
             array('email@domain.name', '.name is valid Top Level Domain name'),
             array('email@domain.co.jp', 'Dot in Top Level Domain name also considered valid (use co.jp as example here)'),
             array('firstname-lastname@domain.com', 'Dash in address field is valid'),
+            array('test@xn--e1aaa0cbbbcacac.xn--p1ai', 'IDNA domain'),
         );
     }
 
@@ -325,8 +326,14 @@ class Framework_Utils extends PHPUnit_Framework_TestCase
     function test_normalize_string()
     {
         $test = array(
-            '' => '',
+            ''        => '',
             'abc def' => 'abc def',
+            'ÇçäâàåæéêëèïîìÅÉöôòüûùÿøØáíóúñÑÁÂÀãÃÊËÈÍÎÏÓÔõÕÚÛÙýÝ' => 'ccaaaaaeeeeiiiaeooouuuyooaiounnaaaaaeeeiiioooouuuyy',
+            'ąáâäćçčéęëěíîłľĺńňóôöŕřśšşťţůúűüźžżýĄŚŻŹĆ' => 'aaaaccceeeeiilllnnooorrsssttuuuuzzzyaszzc',
+            'ß'  => 'ss',
+            'ae' => 'a',
+            'oe' => 'o',
+            'ue' => 'u',
         );
 
         foreach ($test as $input => $output) {
