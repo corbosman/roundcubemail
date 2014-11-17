@@ -73,3 +73,6 @@
 [submodule "plugins/xs4all_spam"]
 	path = plugins/xs4all_spam
 	url = git@github.xs4all.net:XS4ALL/xs4all-roundcube-spam.git
+[submodule "plugins/ident"]
+	path = plugins/ident
+	url = git@github.com:corbosman/ident.git
