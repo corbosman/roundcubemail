@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "ed32bfeeff6c8bd2ad1f869fb966d61a",
+    "hash": "0ff70c96dc93898b2b631198e06f2d43",
     "packages": [
         {
             "name": "Net_SMTP",
@@ -22,12 +23,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "4569f528f66739ec0a3be1075e2c01d6062b0b41"
+                "reference": "095dc6129550de93cd98170c8e6c6ccd4558e983"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/4569f528f66739ec0a3be1075e2c01d6062b0b41",
-                "reference": "4569f528f66739ec0a3be1075e2c01d6062b0b41",
+                "url": "https://api.github.com/repos/composer/composer/zipball/095dc6129550de93cd98170c8e6c6ccd4558e983",
+                "reference": "095dc6129550de93cd98170c8e6c6ccd4558e983",
                 "shasum": ""
             },
             "require": {
@@ -82,7 +83,232 @@
                 "dependency",
                 "package"
             ],
-            "time": "2014-12-22 11:50:02"
+            "time": "2014-12-29 20:29:13"
+        },
+        {
+            "name": "cor/dovecot_impersonate",
+            "version": "2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/corbosman/dovecot_impersonate.git",
+                "reference": "2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/corbosman/dovecot_impersonate/zipball/2.1",
+                "reference": "2.1",
+                "shasum": ""
+            },
+            "require": {
+                "curl/curl": "dev-master"
+            },
+            "type": "roundcube-plugin",
+            "notification-url": "http://plugins.roundcube.net/downloads/%package%",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Cor Bosman",
+                    "email": "cor@roundcu.be",
+                    "homepage": "http://underwa.ter.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "lets you impersonate another user using the dovecot master user feature",
+            "homepage": "https://github.com/corbosman/dovecot_impersonate",
+            "time": "2014-09-10 11:17:32"
+        },
+        {
+            "name": "cor/keyboard_shortcuts",
+            "version": "2.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/corbosman/keyboard_shortcuts",
+                "reference": "2.4.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/corbosman/keyboard_shortcuts/zipball/2.4.1",
+                "reference": "2.4.1",
+                "shasum": ""
+            },
+            "type": "roundcube-plugin",
+            "notification-url": "http://plugins.roundcube.net/downloads/%package%",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Cor Bosman",
+                    "email": "cor@roundcu.be",
+                    "homepage": "http://underwa.ter.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "allows some functionality to be handled with the keyboard",
+            "homepage": "https://github.com/corbosman/keyboard_shortcuts",
+            "time": "2014-09-10 11:07:06"
+        },
+        {
+            "name": "cor/listcommands",
+            "version": "2.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/corbosman/listcommands",
+                "reference": "2.3.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/corbosman/listcommands/zipball/2.3.5",
+                "reference": "2.3.5",
+                "shasum": ""
+            },
+            "type": "roundcube-plugin",
+            "notification-url": "http://plugins.roundcube.net/downloads/%package%",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Cor Bosman",
+                    "email": "cor@roundcu.be",
+                    "homepage": "http://underwa.ter.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "adds a set of commands to the headers of your email to manage mailinglists",
+            "homepage": "https://github.com/corbosman/listcommands",
+            "time": "2014-09-10 11:10:17"
+        },
+        {
+            "name": "cor/message_highlight",
+            "version": "2.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/corbosman/message_highlight",
+                "reference": "2.5.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/corbosman/message_highlight/zipball/2.5.2",
+                "reference": "2.5.2",
+                "shasum": ""
+            },
+            "type": "roundcube-plugin",
+            "notification-url": "http://plugins.roundcube.net/downloads/%package%",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Cor Bosman",
+                    "email": "cor@roundcu.be",
+                    "homepage": "http://underwa.ter.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "colorize the message index rows based on specific criteria",
+            "homepage": "https://github.com/corbosman/message_highlight",
+            "time": "2014-09-10 11:04:58"
+        },
+        {
+            "name": "curl/curl",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-mod/curl.git",
+                "reference": "e53f592851936c1648e9e31ce6e9a617bf468452"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-mod/curl/zipball/e53f592851936c1648e9e31ce6e9a617bf468452",
+                "reference": "e53f592851936c1648e9e31ce6e9a617bf468452",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Curl": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hassan Amouhzi",
+                    "email": "hassan@anezi.net",
+                    "homepage": "http://hassan.amouhzi.com"
+                },
+                {
+                    "name": "php-curl-class",
+                    "homepage": "https://github.com/php-curl-class"
+                },
+                {
+                    "name": "user52",
+                    "homepage": "https://github.com/user52"
+                }
+            ],
+            "description": "cURL class for PHP",
+            "homepage": "https://github.com/php-mod/curl",
+            "keywords": [
+                "curl",
+                "dot"
+            ],
+            "time": "2014-12-11 16:38:36"
+        },
+        {
+            "name": "johndoh/contextmenu",
+            "version": "dev-release-2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JohnDoh/Roundcube-Plugin-Context-Menu.git",
+                "reference": "c6b0c32926b0b5626d2fb2d48f91c24a145df886"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JohnDoh/Roundcube-Plugin-Context-Menu/zipball/c6b0c32926b0b5626d2fb2d48f91c24a145df886",
+                "reference": "c6b0c32926b0b5626d2fb2d48f91c24a145df886",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.1",
+                "roundcube/plugin-installer": ">=0.1.2"
+            },
+            "type": "roundcube-plugin",
+            "extra": {
+                "roundcube": {
+                    "min-version": "1.0-rc"
+                }
+            },
+            "notification-url": "http://plugins.roundcube.net/downloads/%package%",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Philip Weir",
+                    "email": "roundcube@tehinterweb.co.uk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Adds context menus with common tasks to various parts of Roundcube",
+            "homepage": "http://github.com/JohnDoh/Roundcube-Plugin-Context-Menu/",
+            "keywords": [
+                "context",
+                "menu",
+                "right-click"
+            ],
+            "time": "2014-10-22 18:35:37"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -358,12 +584,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "b2d63b962688615d9b895a3d0be8bca7c3acf2fd"
+                "reference": "818f931bbf1b5c658d2698e2395779be82f4ed99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/b2d63b962688615d9b895a3d0be8bca7c3acf2fd",
-                "reference": "b2d63b962688615d9b895a3d0be8bca7c3acf2fd",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/818f931bbf1b5c658d2698e2395779be82f4ed99",
+                "reference": "818f931bbf1b5c658d2698e2395779be82f4ed99",
                 "shasum": ""
             },
             "require": {
@@ -371,8 +597,8 @@
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/event-dispatcher": "~2.1",
-                "symfony/process": "~2.1"
+                "symfony/event-dispatcher": "~2.1|~3.0.0",
+                "symfony/process": "~2.1|~3.0.0"
             },
             "suggest": {
                 "psr/log": "For using the console logger",
@@ -406,7 +632,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2014-12-24 10:55:26"
+            "time": "2014-12-27 11:44:51"
         },
         {
             "name": "symfony/finder",
@@ -537,8 +763,11 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "net_smtp": 20
+        "net_smtp": 20,
+        "johndoh/contextmenu": 20
     },
+    "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
 }

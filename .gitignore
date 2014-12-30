@@ -11,3 +11,10 @@ plugins/plugin_manager
 # composer-related
 composer.phar
 vendor
+
+# other composer plugins
+plugins/contextmenu
+plugins/dovecot_impersonate
+plugins/keyboard_shortcuts
+plugins/listcommands
+plugins/message_highlight

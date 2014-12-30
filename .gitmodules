@@ -1,15 +1,3 @@
-[submodule "plugins/contextmenu"]
-	path = plugins/contextmenu
-	url = git@github.com:JohnDoh/Roundcube-Plugin-Context-Menu.git
-[submodule "plugins/keyboard_shortcuts"]
-	path = plugins/keyboard_shortcuts
-	url = git@github.com:corbosman/keyboard_shortcuts.git
-[submodule "plugins/listcommands"]
-	path = plugins/listcommands
-	url = git@github.com:corbosman/listcommands.git
-[submodule "plugins/message_highlight"]
-	path = plugins/message_highlight
-	url = git@github.com:corbosman/message_highlight.git
 [submodule "plugins/xs4all_about"]
 	path = plugins/xs4all_about
 	url = git@github.xs4all.net:XS4ALL/xs4all-roundcube-about.git
@@ -67,9 +55,6 @@
 [submodule "plugins/xs4all_virus_settings"]
 	path = plugins/xs4all_virus_settings
 	url = git@github.xs4all.net:XS4ALL/xs4all-roundcube-virussettings.git
-[submodule "plugins/dovecot_impersonate"]
-	path = plugins/dovecot_impersonate
-	url = git@github.com:corbosman/dovecot_impersonate.git
 [submodule "plugins/xs4all_spam"]
 	path = plugins/xs4all_spam
 	url = git@github.xs4all.net:XS4ALL/xs4all-roundcube-spam.git

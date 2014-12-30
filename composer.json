@@ -31,7 +31,12 @@
         "pear-pear/Net_IDNA2": ">=0.1.1",
         "pear-pear/Auth_SASL": ">=1.0.6",
         "roundcube/plugin-installer": ">=0.1.0",
-        "till/plugin_manager": "0.1.0"
+        "till/plugin_manager": "0.1.0",
+		"johndoh/contextmenu": "dev-release-2.0",
+		"cor/keyboard_shortcuts": "~2.0",
+		"cor/listcommands": "~2.0",
+		"cor/message_highlight": "~2.0",
+		"cor/dovecot_impersonate": "~2.0"
     },
     "minimum-stability": "dev"
 }
