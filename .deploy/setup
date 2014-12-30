@@ -21,3 +21,5 @@ fi
 
 # run cron file to be up to date
 RC_CRON_NOW=1 plugins/xs4all_login/storing.cron
+
+exit 1
