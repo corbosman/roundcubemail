@@ -1,4 +1,6 @@
 # path
+echo -e "\n\n\e[92mInstalling Dependencies\n\n"
+
 export PATH=$PATH:/usr/xs4all/sbin:/usr/xs4all/bin:/usr/local/bin
 
 # set up a git environment

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo -e "\n\n\e[92mRunning Sanity Check\n\n"
+
 # make sure we have a config file
 if [ ! -f config/config.inc.php ]; then
   echo "config file missing";
