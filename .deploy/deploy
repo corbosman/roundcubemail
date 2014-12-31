@@ -29,5 +29,5 @@ done
 
 for host in "${hosts[@]}"
 do
-  rsync $N -navH -O --delete --exclude=.deploy --exclude=.git --exclude=storing.inc --exclude=.gitignore --exclude=.gitmodules --exclude=bin ./ roundcube@$host:/data/WWW/release-1.0/
+  rsync $N -navH -O --delete --exclude=SQL --exclude=.deploy --exclude=.git --exclude=storing.inc --exclude=.gitignore --exclude=.gitmodules --exclude=bin ./ roundcube@$host:/data/WWW/release-1.0/
 done
