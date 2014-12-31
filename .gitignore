@@ -22,26 +22,3 @@ plugins/message_highlight
 # git-deploy files
 .deploy
 
-# ignore minified files
-plugins/acl/acl.min.js
-plugins/archive/archive.min.js
-plugins/attachment_reminder/attachment_reminder.min.js
-plugins/enigma/enigma.min.js
-plugins/help/help.min.js
-plugins/hide_blockquote/hide_blockquote.min.js
-plugins/managesieve/managesieve.min.js
-plugins/markasjunk/markasjunk.min.js
-plugins/newmail_notifier/newmail_notifier.min.js
-plugins/password/password.min.js
-plugins/userinfo/userinfo.min.js
-plugins/vcard_attachments/vcardattach.min.js
-plugins/zipdownload/zipdownload.min.js
-program/js/app.min.js
-program/js/common.min.js
-program/js/editor.min.js
-program/js/googiespell.min.js
-program/js/list.min.js
-program/js/treelist.min.js
-skins/classic/functions.min.js
-skins/classic/splitter.min.js
-skins/larry/ui.min.js
