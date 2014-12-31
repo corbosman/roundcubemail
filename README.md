@@ -1,4 +1,5 @@
-6
+[![Build Status](https://jenkins2.dev.xs4all.net/buildStatus/icon?job=Roundcube-Accept&build=78)](https://jenkins2.dev.xs4all.net/job/Roundcube-Accept/78/)
+
 Roundcube Webmail 
 =================
 [roundcube.net](http://roundcube.net)
