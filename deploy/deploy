@@ -31,5 +31,5 @@ done
 
 for host in "${hosts[@]}"
 do
-  rsync $N -avH -O --delete --exclude=SQL --exclude=.deploy --exclude=.git --exclude=storing.inc --exclude=.gitignore --exclude=.gitmodules --exclude=bin /data/WWW/roundcube-accept.xs4all.net/ roundcube@$host:/data/WWW/release-1.0/
+  rsync $N -avH -O --delete --exclude=SQL --exclude=deploy --exclude=.git --exclude=storing.inc --exclude=.gitignore --exclude=.gitmodules --exclude=bin /data/WWW/roundcube-accept.xs4all.net/ roundcube@$host:/data/WWW/release-1.0/
 done
