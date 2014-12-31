@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo -e "\n\nDeploying to Production\n\n"
 
 # exit on error
 set -e
@@ -16,8 +15,10 @@ done
 
 if [ "$TEST" == "1" ]; then
   N="-n";
+  echo -e "\n\nTesting Deploy\n\n"
 else 
   N=""
+  echo -e "\n\nDeploying to Production\n\n"
 fi
 
 # first see if all hosts are up
