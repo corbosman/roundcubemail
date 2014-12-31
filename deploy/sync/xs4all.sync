@@ -2,8 +2,6 @@
 
 echo -e "\n\nDeploying to Production\n\n"
 
-exit
-
 # exit on error
 set -e
 
