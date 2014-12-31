@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "\n\n\e[92mDeploying to Production\n\n"
+echo -e "\n\nDeploying to Production\n\n"
 
 # exit on error
 set -e
