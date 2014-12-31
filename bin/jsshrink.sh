@@ -73,3 +73,4 @@ for dir in $DIRS; do
         do_shrink "$file" "$minfile" "$LANG_IN"
     done
 done
+rm -f "$JAR_DIR/compiler.jar"
