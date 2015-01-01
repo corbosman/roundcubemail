@@ -22,3 +22,5 @@ plugins/message_highlight
 # git-deploy files
 .deploy
 
+# IDE
+.idea
