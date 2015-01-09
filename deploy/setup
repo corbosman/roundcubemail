@@ -25,4 +25,4 @@ fi
 RC_CRON_NOW=1 plugins/xs4all_login/storing.cron
 
 # minify
-bin/jsshrink.sh
+# bin/jsshrink.sh  NOTE: no longer minify, just add minified files to git repo
