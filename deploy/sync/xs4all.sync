@@ -4,7 +4,7 @@
 # exit on error
 set -e
 
-hosts=( roundcube12.xs4all.net )
+hosts=( roundcube1.xs4all.net roundcube12.xs4all.net )
 
 while getopts "st" opt; do
   case $opt in
