@@ -1,35 +1,6 @@
-#!/bin/bash
+#!/bin/sh
+#
+# run deploy manually by firing off request to jenkins
+#
 
-echo -e "\n\nDeploying to Production\n\n"
-
-# exit on error
-set -e
-
-hosts=( roundcube12.xs4all.net )
-
-while getopts "st" opt; do
-  case $opt in
-    t) TEST=1 ;;
-    *) echo "Usage: $0 -t  (-t to test)"; exit;;
-  esac
-done
-
-if [ "$TEST" == "1" ]; then
-  N="-n";
-else 
-  N=""
-fi
-
-# first see if all hosts are up
-
-for host in "${hosts[@]}"
-do
-  ssh -o StrictHostKeyChecking=no roundcube@$host "date"	
-done
-
-# now actually sync
-
-for host in "${hosts[@]}"
-do
-  rsync $N -avH -O --delete --exclude=SQL --exclude=deploy --exclude=.git --exclude=storing.inc --exclude=.gitignore --exclude=.gitmodules --exclude=bin /data/WWW/roundcube-accept.xs4all.net/ roundcube@$host:/data/WWW/release-1.0/
-done
+curl https://cor:59d879734d066fe139bb8ddb22cbacf9@jenkins2.dev.xs4all.net/job/Roundcube-Deploy/build?token=roundcube-deploy
