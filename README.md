@@ -1,6 +1,6 @@
 [![Build Status](https://jenkins2.dev.xs4all.net/buildStatus/icon?job=Roundcube-Accept)](https://jenkins2.dev.xs4all.net/job/Roundcube-Accept/)
 
-12
+11
 
 Roundcube Webmail 
 =================
