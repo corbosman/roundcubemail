@@ -23,7 +23,7 @@ fi
 
 # managesieve config
 if [ ! -f "plugins/managesieve/config.inc.php" ]; then
-  cp ../roundcube-dev/plugins/managesieve/config.inc.php plugins/managesieve
+  cp ../roundcube-dev.xs4all.net/plugins/managesieve/config.inc.php plugins/managesieve
 fi
 
 # run cron file to be up to date
