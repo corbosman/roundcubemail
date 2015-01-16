@@ -21,6 +21,11 @@ if [ ! -f "config/config.inc.php" ]; then
   cp ../roundcube-test.xs4all.net/config/config.inc.php config/
 fi
 
+# managesieve config
+if [ ! -f "plugins/managesieve/config.inc.php" ]; then
+  cp ../roundcube-dev/plugins/managesieve/config.inc.php plugins/managesieve
+fi
+
 # run cron file to be up to date
 RC_CRON_NOW=1 plugins/xs4all_login/storing.cron
 
