@@ -16,12 +16,20 @@ composer install --no-interaction
 
 # we get the config from the test server
 if [ ! -f "config/config.inc.php" ]; then
+  if [ ! -f "../configs/config.inc.php" ]; then
+    echo "Copy config.inc.php from roundcube-test.xs4all.net:/data/WWW/configs to config/"
+    exit 1
+  fi
   cp ../configs/config.inc.php config/
 fi
 
 # managesieve config
 if [ ! -f "plugins/managesieve/config.inc.php" ]; then
-  cp ../configs/managesieve.inc.php plugins/managesieve/config.inc.php
+  if [ ! -f "../configs/managesieve/config.inc.php" ]; then
+    echo "Copy config.inc.php from roundcube-test.xs4all.net:/data/WWW/configs/managesieve to plugins/managesieve"
+    exit 1
+  fi
+  cp ../configs/managesieve/config.inc.php plugins/managesieve/config.inc.php
 fi
 
 # run cron file to be up to date
