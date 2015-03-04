@@ -1,11 +1,9 @@
-# path
+#!/bin/sh
+
 echo -e "\n\nInstalling Dependencies\n\n"
 
+# path
 export PATH=$PATH:/usr/xs4all/sbin:/usr/xs4all/bin:/usr/local/bin
-
-# set up a git environment
-git config --global user.email "github-bot@xs4all.net"
-git config --global user.name "Github Robot"
 
 # get all git based plugins
 git submodule init
@@ -18,12 +16,12 @@ composer install --no-interaction
 
 # we get the config from the test server
 if [ ! -f "config/config.inc.php" ]; then
-  cp ../roundcube-test.xs4all.net/config/config.inc.php config/
+  cp ../configs/config.inc.php config/
 fi
 
 # managesieve config
 if [ ! -f "plugins/managesieve/config.inc.php" ]; then
-  cp ../roundcube-dev.xs4all.net/plugins/managesieve/config.inc.php plugins/managesieve
+  cp ../configs/managesieve.inc.php plugins/managesieve/config.inc.php
 fi
 
 # run cron file to be up to date
