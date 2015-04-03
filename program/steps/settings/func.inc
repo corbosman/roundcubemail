@@ -1238,13 +1238,14 @@ function rcmail_user_prefs($current = null)
             unset($sections[$idx]);
         else
             $sections[$idx]['blocks'] = $data['blocks'];
-    }
 
-    $data = $RCMAIL->plugins->exec_hook('preferences_section_header',
-        array('section' => $sect['id'], 'header' => '', 'current' => $current));
+        // add an optional header to a section through a plugin
+        $data = $RCMAIL->plugins->exec_hook('preferences_section_header',
+                                            array('section' => $sect['id'], 'header' => '', 'current' => $current));
 
-    if(!empty($data['header'])) {
-        $sections[$idx]['header'] = $data['header'];
+        if(!empty($data['header'])) {
+            $sections[$idx]['header'] = $data['header'];
+        }
     }
 
     return array($sections, $plugin['cols']);
